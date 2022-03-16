@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.UI.MVC", "StoreFront.UI.MVC\StoreFront.UI.MVC.csproj", "{D01FF721-A781-40D4-A83B-DB2FD96B67A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.Data.EF", "StoreFront.Data.EF\StoreFront.Data.EF.csproj", "{DC870CBB-5FB2-4681-AED7-B007EDC6ED27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{D01FF721-A781-40D4-A83B-DB2FD96B67A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D01FF721-A781-40D4-A83B-DB2FD96B67A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D01FF721-A781-40D4-A83B-DB2FD96B67A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC870CBB-5FB2-4681-AED7-B007EDC6ED27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC870CBB-5FB2-4681-AED7-B007EDC6ED27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC870CBB-5FB2-4681-AED7-B007EDC6ED27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC870CBB-5FB2-4681-AED7-B007EDC6ED27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
