@@ -37,7 +37,7 @@ namespace StoreFront.UI.MVC
             bundles.Add(new StyleBundle("~/Content/css-template").Include(
                 "~/Content/vendor/swiper/swiper-bundle.min.css",
                 "~/Content/vendor/choices.js/public/assets/styles/choices.css",
-                "~/Content/css/style.default.css",
+                "~/Content/css/style.red.min.css",
                 "~/Content/css/custom.css"
                 ));
 

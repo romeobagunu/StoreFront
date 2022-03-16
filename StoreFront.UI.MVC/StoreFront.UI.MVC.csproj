@@ -184,24 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\custom.css" />
-    <Content Include="Content\css\style.blue.css" />
-    <Content Include="Content\css\style.blue.min.css" />
-    <Content Include="Content\css\style.default.css" />
-    <Content Include="Content\css\style.default.min.css" />
-    <Content Include="Content\css\style.green.css" />
-    <Content Include="Content\css\style.green.min.css" />
-    <Content Include="Content\css\style.lightblue.css" />
-    <Content Include="Content\css\style.lightblue.min.css" />
-    <Content Include="Content\css\style.marsala.css" />
-    <Content Include="Content\css\style.marsala.min.css" />
-    <Content Include="Content\css\style.pink.css" />
-    <Content Include="Content\css\style.pink.min.css" />
     <Content Include="Content\css\style.red.css" />
     <Content Include="Content\css\style.red.min.css" />
-    <Content Include="Content\css\style.turquoise.css" />
-    <Content Include="Content\css\style.turquoise.min.css" />
-    <Content Include="Content\css\style.violet.css" />
-    <Content Include="Content\css\style.violet.min.css" />
     <Content Include="Content\img\404.svg" />
     <Content Include="Content\img\apple-touch-icon-114x114.png" />
     <Content Include="Content\img\apple-touch-icon-120x120.png" />
@@ -1140,15 +1124,7 @@
     <Content Include="Content\vendor\waypoints\testem.json" />
     <Content Include="Content\vendor\wow.js\wow.min.js.gz" />
     <Content Include="Scripts\countries.json" />
-    <Content Include="Content\css\style.blue.min.css.map" />
-    <Content Include="Content\css\style.default.min.css.map" />
-    <Content Include="Content\css\style.green.min.css.map" />
-    <Content Include="Content\css\style.lightblue.min.css.map" />
-    <Content Include="Content\css\style.marsala.min.css.map" />
-    <Content Include="Content\css\style.pink.min.css.map" />
     <Content Include="Content\css\style.red.min.css.map" />
-    <Content Include="Content\css\style.turquoise.min.css.map" />
-    <Content Include="Content\css\style.violet.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
