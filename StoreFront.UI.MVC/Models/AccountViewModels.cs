@@ -79,6 +79,19 @@ namespace StoreFront.UI.MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //Added custom classes for UserDetails
+        [Required(ErrorMessage = "Please enter your first name.")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your last name.")]
+        public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your birthday.")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Birthday")]
+        public System.DateTime BirthDay { get; set; }
+
     }
 
     public class ResetPasswordViewModel

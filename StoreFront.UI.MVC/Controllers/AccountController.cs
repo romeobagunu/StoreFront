@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using StoreFront.Data.EF;//Added for access to UserDetails.
 
 namespace StoreFront.UI.MVC.Controllers
 {
@@ -155,14 +156,44 @@ namespace StoreFront.UI.MVC.Controllers
                 {
                     //Default newly registered users to Customer.
                     UserManager.AddToRole(user.Id, "Customer");
+
+                    #region Custom User Details
+
+                    //Create UserDetail object.
+                    UserDetail newUserDetails = new UserDetail();
+
+                    //Assign properties.
+
+                    //Retrieve GUID for ID.
+                    newUserDetails.UserID = user.Id;
+
+                    //Assign custom details.
+                    newUserDetails.FirstName = model.FirstName;
+                    newUserDetails.LastName = model.LastName;
+                    newUserDetails.BirthDay = model.BirthDay;
+
+                    //Construct db object.
+                    StoreFrontEntities db = new StoreFrontEntities();
+
+                    //Add new UserDetails record.
+                    db.UserDetails.Add(newUserDetails);
+                    db.SaveChanges();
+
+                    //Pass thru welcome message to the Login View.
+                    ViewBag.Welcome = $"<h2>Welcome to Retro Tech, {model.FirstName}!</h2>" +
+                        $"<h3>Please log in below.</h3>";
+
+                    //Redirect the user to the Login view.
+                    return View("Login");
+
+                    #endregion
+
+                    //Commented out email confirmation code.
                     //var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
                     //ViewBag.Link = callbackUrl;
                     //return View("DisplayEmail");
-
-                    //Redirect the user to the Home Index view.
-                    return RedirectToAction("Index", "Home");
 
                 }
                 AddErrors(result);
