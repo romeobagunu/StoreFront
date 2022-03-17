@@ -15,7 +15,7 @@ namespace StoreFront.Data.EF//.StoreFrontMetadata
         //PK/Identity: Commented out.
         //public int ProductID { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*Product Name is Required")]
         [StringLength(100, ErrorMessage = "*Must be 100 characters or less")]
         [Display(Name = "Product")]
         public string ProductName { get; set; }
@@ -24,15 +24,17 @@ namespace StoreFront.Data.EF//.StoreFrontMetadata
         [UIHint("MultilineText")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*Category is Required")]
+        [Display(Name = "Category")]
         public int CategoryID { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*Price is Required")]
         [Range(0, double.MaxValue, ErrorMessage = "*Must be a valid number 0 or larger.")]
         [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*Product Status is Required")]
+        [Display(Name = "Product Status")]
         public int ProductStatusID { get; set; }
 
         [DisplayFormat(NullDisplayText = "N/A")]
@@ -40,11 +42,10 @@ namespace StoreFront.Data.EF//.StoreFrontMetadata
         [Display(Name = "Units in Stock")]
         public Nullable<int> UnitsInStock { get; set; }
 
-        [DisplayFormat(NullDisplayText = "N/A", DataFormatString = "{0:yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(NullDisplayText = "N/A", DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Released")]
         public Nullable<System.DateTime> DateReleased { get; set; }
 
-        [Required(ErrorMessage = "*")]
         [Display(Name = "Image")]
         public string ProductImage { get; set; }
     }

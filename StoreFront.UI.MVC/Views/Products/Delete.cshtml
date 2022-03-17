@@ -1,0 +1,62 @@
+﻿@model StoreFront.Data.EF.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="min-vh-100 d-flex">
+    <div class="my-auto min-vw-100">
+        <!-- Product Details Section -->
+        <section class="container p-3 my-5">
+            <div class="row gx-5">
+                <div class="col-md-5">
+                    <img src="~/Content/img/@Model.ProductImage" alt="@Model.ProductName" class="img-fluid" />
+                </div>
+                <div class="col-md-7 my-auto">
+                    <h1 class="text-uppercase text-primary">@Model.ProductName </h1>
+                    <h4 class="text-uppercase text-muted">Released @Html.DisplayFor(model => model.DateReleased)</h4>
+                    <h2 class="text-uppercase pt-3">
+                        Description
+                    </h2>
+                    <p class="lead pb-3">
+                        @Html.DisplayFor(model => model.Description)
+                    </p>
+                    <h4>
+                        Category: @Html.DisplayFor(model => model.Category.CategoryName)
+                    </h4>
+                    <h4 class="text-muted">
+                        Product Status: @Html.DisplayFor(model => model.ProductStatus.Status)
+                        | Units In Stock: @Html.DisplayFor(model => model.UnitsInStock)
+                    </h4>
+                    <h3 class="text-uppercase text-success">
+                        Price: @Html.DisplayFor(model => model.Price)
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delete Banner -->
+        <div class="bg-primary py-3 text-white">
+            <div class="container py-4">
+                <div class="col-lg-12 text-left my-3 text-uppercase">
+                    <h3>Are you sure you want to delete @Model.ProductName?</h3>
+                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="col-lg-12 text-left my-3">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-outline-light" />
+                            </div>
+                        }
+                    </div>
+                }
+                <div class="col-lg-12 my-3">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

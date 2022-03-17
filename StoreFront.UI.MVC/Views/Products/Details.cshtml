@@ -1,0 +1,58 @@
+﻿@model StoreFront.Data.EF.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<!-- Product Details Section -->
+<section class="container min-vh-100 p-3 my-5">
+    <div class="row gx-5">
+        <div class="col-md-5">
+            <img src="~/Content/img/@Model.ProductImage" alt="@Model.ProductName" class="img-fluid" />
+        </div>
+        <div class="col-md-7 my-auto">
+            <h1 class="text-uppercase text-primary">@Model.ProductName </h1>
+            @if (Model.DateReleased != null)
+            {
+                <h4 class="text-uppercase text-muted">Released @Html.DisplayFor(model => model.DateReleased.Value.Year)</h4>
+            }
+            <h2 class="text-uppercase pt-3">
+                Description
+            </h2>
+            <p class="lead pb-3">
+                @Html.DisplayFor(model => model.Description)
+            </p>
+            <h4>
+                Category: @Html.DisplayFor(model => model.Category.CategoryName)
+            </h4>
+            <h4 class="text-muted">
+                Product Status: @Html.DisplayFor(model => model.ProductStatus.Status)
+                | Units In Stock: @Html.DisplayFor(model => model.UnitsInStock)
+            </h4>
+            <h3 class="text-uppercase text-success">
+                Price: @Html.DisplayFor(model => model.Price)
+            </h3>
+            @* TODO: "Add to Cart" Button *@
+            <p>
+                @using (Html.BeginForm("AddToCart", "Products", new { @productID = Model.ProductID }, FormMethod.Post, null))
+                {
+                    @Html.HiddenFor(x => x.ProductID)
+                    <span class="label" style="color: #000;">Quantity:</span>
+                    @Html.TextBox("Qty", 1, new { @class = "form-control", @style = "max-width: 50px; display: inline;" })
+                    <input type="submit" value="Add to Cart" class="btn btn-success" name="qty" />
+                }
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }, new { @class = "btn btn-info" })
+                    }
+                </div>
+                <div class="col-md-6">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

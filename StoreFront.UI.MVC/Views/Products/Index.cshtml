@@ -1,0 +1,91 @@
+﻿@model IEnumerable<StoreFront.Data.EF.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="container p-3">
+    <h2>@ViewBag.Title</h2>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        </p>
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.DateReleased)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ProductStatus.Status)
+                </th>*@
+            <th></th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th></th>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Content/img/t_@item.ProductImage" alt="@item.ProductName" href="@Url.Action("Details", new { id = item.ProductID })">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.UnitsInStock)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.DateReleased)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ProductStatus.Status)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "text-muted" })
+                    
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "link-info" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                                </td>
+                }
+            </tr>
+        }
+    </table>
+</div>

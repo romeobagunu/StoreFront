@@ -11,7 +11,10 @@ namespace StoreFront.UI.MVC
                         //"~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery-3.3.1.min.js",
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/jquery-ui.min.js"
+                        ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -37,6 +40,8 @@ namespace StoreFront.UI.MVC
             bundles.Add(new StyleBundle("~/Content/css-template").Include(
                 "~/Content/vendor/swiper/swiper-bundle.min.css",
                 "~/Content/vendor/choices.js/public/assets/styles/choices.css",
+                "~/Content/css/jquery-ui.min.css",
+                "~/Content/css/jquery-ui.structure.min.css",
                 "~/Content/css/style.red.min.css",
                 "~/Content/css/custom.css"
                 ));
