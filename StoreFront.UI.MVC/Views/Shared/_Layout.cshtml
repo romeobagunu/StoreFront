@@ -51,12 +51,12 @@
                 <div class="row d-flex align-items-center">
                     <div class="col-md-6">
                         @* TODO: New Social Links?
-            <ul class="list-inline mb-0 ms-lg-4">
-            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Email"><i class="fas fa-envelope"></i></a></li>
-        </ul>*@
+                            <ul class="list-inline mb-0 ms-lg-4">
+                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Email"><i class="fas fa-envelope"></i></a></li>
+                        </ul>*@
                     </div>
                     <div class="col-md-6">
                         @Html.Partial("_LoginPartial")
@@ -65,12 +65,11 @@
             </div>
         </div>
         <!-- Top bar end-->
-
         <!-- Navbar Sticky-->
         <header class="nav-holder make-sticky">
             <div class="navbar navbar-light bg-white navbar-expand-lg py-0" id="navbar">
                 <div class="container py-3 py-lg-0 px-lg-0">
-                    <!-- Navbar brand--><a class="navbar-brand" href="@Url.Action("Index", "Home")"><img class="d-none d-md-inline-block" src="~/Content/img/logo.png" alt="Retro Tech logo"><img class="d-inline-block d-md-none" src="~/Content/img/logo-small.png" alt="Retro Tech logo"><span class="sr-only">Retro Tech - go to homepage</span></a>
+                    <!-- Navbar brand--><a class="navbar-brand" href="@Url.Action("Index", "Home")"><img class="d-none d-md-inline-block" src="~/Content/img/logo.png" alt="Retro Tech logo" style="max-width: 187px;"><img class="d-inline-block d-md-none" src="~/Content/img/logo.png" alt="Retro Tech logo" style="max-width: 110px;"><span class="sr-only">Retro Tech - go to homepage</span></a>
                     <!-- Navbar toggler-->
                     <button class="navbar-toggler text-primary border-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navigationCollapse" aria-controls="navigationCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="sr-only">Toggle navigation</span><i class="fas fa-align-justify"></i></button>
                     <!-- Collapsed Navigation -->
@@ -80,7 +79,7 @@
                                 <a class="nav-link" href="@Url.Action("Index", "Home")" role="button">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="@Url.Action("About", "Home")" role="button">About</a>
+                                <a class="nav-link" href="#" role="button">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Index", "Products")" role="button">Products</a>
@@ -96,78 +95,53 @@
 
         @RenderBody()
 
+        <!-- COPYRIGHTS -->
         <footer>
-            <!-- MAIN FOOTER-->
             <div class="bg-gray-700 text-white py-3">
                 <div class="container py-3">
                     <div class="row gy-4">
-                        <!-- COPYRIGHTS -->
-                        <div class="col-lg-3">
-                            <h4 class="mb-3 text-uppercase">Credits</h4>
+                        <div class="col-lg-10">
                             <p class="mb-0 text-sm text-gray-500">
-                                &copy; @DateTime.Now.Year Romeo Bagunu<br />
-                                <hr />
-                                Template designed by <a href="https://bootstrapious.com" target="_blank">Bootstrapious</a> &amp; <a href="https://hikershq.com/" target="_blank">HHQ</a>
+                                &copy; @DateTime.Now.Year Romeo Bagunu | Template designed by <a href="https://bootstrapious.com" target="_blank">Bootstrapious</a> &amp; <a href="https://hikershq.com/" target="_blank">HHQ</a>
                             </p>
                             <!-- Please do not remove the backlink to us unless you purchase the Attribution-free License at https://bootstrapious.com/attribution-free-license. Thank you.-->
-                        </div>
-                        <div class="col-lg-3">
-                            <h4 class="mb-3 text-uppercase">About Us</h4>
-                            <p class="text-sm text-gray-500">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                            @*<hr>
-                                <h4 class="h6 text-uppercase">Join Our Monthly Newsletter</h4>
-                                <form>
-                                    <div class="input-group border mb-3">
-                                        <input class="form-control bg-none border-0 shadow-0 text-white" type="email" placeholder="Email address" aria-label="Email address" aria-describedby="button-submit">
-                                        <button class="btn btn-outline-light bg-none border-0" id="button-submit" type="button"><i class="fas fa-paper-plane"></i></button>
-                                    </div>
-                                </form>*@
-                        </div>
-                        <div class="col-lg-3">
-                            <h4 class="mb-3 text-uppercase">Contact</h4>
-                            <p class="text-uppercase text-sm text-gray-500">
-                                <strong>Retro Tech Ltd.</strong><br>
-                                8700 State Line Rd<br>
-                                Leawood, KS 6206<br>
-                            </p>
-                            <a class="btn btn-primary" href="@Url.Action("Contact", "Home")">Contact Us</a>
                         </div>
                     </div>
                 </div>
                 @*
-                                <div class="col-lg-3">
-                                    <h4 class="mb-3 text-uppercase">Blog</h4>
-                                    <ul class="list-unstyled">
-                                        <li class="d-flex align-items-center mb-2">
-                                            <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
-                                            <div class="ms-2">
-                                                <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex align-items-center mb-2">
-                                            <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
-                                            <div class="ms-2">
-                                                <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex align-items-center mb-2">
-                                            <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
-                                            <div class="ms-2">
-                                                <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Very very long blog post name</a></h6>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-3">
-                                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
-                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
-                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
-                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
-                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
-                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
-                    </ul>
-                                </div>
+                            <div class="col-lg-3">
+                                <h4 class="mb-3 text-uppercase">Blog</h4>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex align-items-center mb-2">
+                                        <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
+                                        <div class="ms-2">
+                                            <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-2">
+                                        <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
+                                        <div class="ms-2">
+                                            <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
+                                        </div>
+                                    </li>
+                                    <li class="d-flex align-items-center mb-2">
+                                        <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
+                                        <div class="ms-2">
+                                            <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Very very long blog post name</a></h6>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
+                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
+                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
+                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
+                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
+                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
+                </ul>
+                            </div>
                 *@
 
             </div>
