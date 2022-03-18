@@ -3,24 +3,18 @@
 @{
     ViewBag.Title = "Email Confirmation";
 }
-
-<h2>@ViewBag.Title</h2>
-
-<div class="row">
-    <div class="col-md-offset-2 col-md-4 text-center">
-        <h2>Thank you for contacting us.</h2>
+<div class="alert alert-success my-3 px-5">
+    <h2>Your message was sent.</h2>
+</div>
+<div class="container p-3 min-vh-100">
+    <div class="col-md-10">
+        <h2 class="text-primary">Thank you for contacting us.</h2>
         <p>We will reply to you soon!</p>
     </div>
-
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <h5>Subject:</h5>
-                <h5>@Model.Subject</h5>
-                <h5>Message:</h5>
-                <h5>@Model.Message</h5>
-                <h5>Return Email: <em>@Model.Email</em></h5>
-            </div>
-        </div>
+    <div class="p-5 border-gray-700">
+        <h4><span class="text-muted">From:</span> @Model.Name (@Model.Email)</h4>
+        <h4><span class="text-muted">Subject:</span> @Model.Subject</h4>
+        <h4 class="text-muted">Message:</h4>
+        <p class="lead">@Model.Message</p>
     </div>
 </div>

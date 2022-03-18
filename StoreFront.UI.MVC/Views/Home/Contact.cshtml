@@ -4,41 +4,52 @@
     ViewBag.Title = "Contact Us";
 }
 
-<h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="contact-entry">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+<div class="min-vh-100">
+    <!-- Contact Banner -->
+    <div class="bg-primary py-3 text-white min-vw-100">
+        <div class="container p-3 align-items-center">
+            <h3 class="text-uppercase">@ViewBag.Title</h3>
+        </div>
     </div>
+    <!-- Contact Form -->
+    <div class="container px-3 py-5">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="contact-entry">
-        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <div class="col-md-10 my-3">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label py-2 text-uppercase" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-10 my-3">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label py-2 text-uppercase" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-10 my-3">
+                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label py-2 text-uppercase" })
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-10 my-3">
+                @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label py-2 text-uppercase" })
+                @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-10 my-3">
+                <fieldset>
+                    <input type="submit" value="Send Message" class="btn btn-primary">
+                </fieldset>
+            </div>
+
+        }
     </div>
-
-    <div class="contact-entry">
-        @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="contact-entry">
-        @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
-    </div>
-
-    <div>
-        <fieldset>
-            <input type="submit" value="Send Message" class="btn btn-primary">
-        </fieldset>
-    </div>
-
-}
+</div>
