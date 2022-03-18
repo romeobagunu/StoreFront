@@ -10,11 +10,19 @@
 
 /*** INDEX ***/
 
-#IndexHero {
-
+.category-icon-lg img {
+    border-radius: 50%;
+    max-height: 150px;
+    padding: 16px;
+    margin-bottom: 2em;
 }
 
+    .category-icon-lg img:hover {
+        border: 1px solid #da4d4d;
+        padding: 15px;
+    }
 
+/*** PRODUCTS ***/
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
     cursor: default;
     background-color: #da4d4d;
