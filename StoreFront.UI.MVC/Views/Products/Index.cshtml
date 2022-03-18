@@ -17,11 +17,10 @@
         </p>
     }
 
-    @* TODO: Add filters by category. *@
     @using (Html.BeginForm("Index", "Products", FormMethod.Get))
     {
         <div class="row align-items-center gy-3 mt-3 mb-0">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <label for="searchFilter" class="text-uppercase">Search: </label>
             </div>
             <div class="col-md-6">
@@ -29,10 +28,16 @@
             </div>
             <div class="col-md-4 d-flex align-items-center">
                 <input type="submit" value="Search" class="btn btn-primary btn-sm mx-3" />
-                @Html.ActionLink("Reset", "Index", "Products", null, new { @class = "btn btn-secondary btn-sm mx-3" })
             </div>
         </div>
     }
+        <div>
+            @Html.ActionLink("Video Games", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Video Games", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
+
+            @Html.ActionLink("Music", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Music", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
+
+            @Html.ActionLink("Reset", "Index", "Products", null, new { @class = "btn btn-secondary btn-sm" })
+        </div>
     <table class="table mb-0">
         <tr>
             <th>
@@ -109,10 +114,10 @@
     </table>
     <div class="min-vw-100 d-flex mt-0">
         <div class="d-inline-block">
-            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.SearchString }))
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.SearchString, categoryFilter = ViewBag.CategoryFilter }))
         </div>
         @*<p class="my-auto text-muted d-inline-block" style="margin-left: 10px;">
-            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-        </p>*@
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            </p>*@
     </div>
 </div>

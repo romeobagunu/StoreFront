@@ -19,21 +19,33 @@ namespace StoreFront.UI.MVC.Controllers
         private StoreFrontEntities db = new StoreFrontEntities();
 
         // GET: Products
-        public ActionResult Index(string searchString, int page = 1)
+        public ActionResult Index(string searchString, string categoryFilter, int page = 1)
         {
             //Sets records per page to 6
             int pageSize = 6;
 
+            //Creates products List, ordered by Category then by Release Date.
             var products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).OrderBy(p => p.CategoryID).ThenBy(p => p.DateReleased).ToList();
 
-            #region Search
+            #region Filters
 
-            if (!string.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString) && !string.IsNullOrEmpty(categoryFilter))
             {
-                products = products.Where(p => p.ProductName.ToLower().Contains(searchString.ToLower())).ToList();
+                products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).Where(p => p.Category.CategoryName.ToLower().Contains(categoryFilter) && p.ProductName.ToLower().Contains(searchString.ToLower())).OrderBy(p => p.DateReleased).ToList();
+            }
+            else if (!string.IsNullOrEmpty(searchString) && string.IsNullOrEmpty(categoryFilter))
+            {
+                products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).Where(p => p.ProductName.ToLower().Contains(searchString.ToLower())).ToList();
+            }
+            else if (!string.IsNullOrEmpty(categoryFilter) && string.IsNullOrEmpty(searchString))
+            {
+                products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).Where(p => p.Category.CategoryName.ToLower().Contains(categoryFilter)).OrderBy(p => p.DateReleased).ToList();
             }
 
             ViewBag.SearchString = searchString;
+
+            ViewBag.CategoryFilter = categoryFilter;
+
             #endregion
 
             return View(products.ToPagedList(page, pageSize));
@@ -172,7 +184,7 @@ namespace StoreFront.UI.MVC.Controllers
             {
 
                 #region Image Upload
-                
+
                 string imageName = "placeholder.jpg";
 
                 //Check the input for the file upload and see if it is not null.
@@ -258,7 +270,7 @@ namespace StoreFront.UI.MVC.Controllers
             if (product.ProductImage != null && product.ProductImage != "placeholder.jpg")
             {
                 string path = Server.MapPath("~/Content/img/");
-            ImageUtility.Delete(path, product.ProductImage);
+                ImageUtility.Delete(path, product.ProductImage);
             }
 
             db.Products.Remove(product);
