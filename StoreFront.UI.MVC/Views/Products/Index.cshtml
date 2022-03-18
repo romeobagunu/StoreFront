@@ -1,11 +1,14 @@
-﻿@model IEnumerable<StoreFront.Data.EF.Product>
+﻿@model PagedList.IPagedList<StoreFront.Data.EF.Product>
+@* Replaced IEnumerable with PagedList *@
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Products";
 }
 
-<div class="container p-3">
-    <h2>@ViewBag.Title</h2>
+
+<div class="container p-3 min-vh-100">
+    <h2 class="text-uppercase">@ViewBag.Title</h2>
 
     @if (User.IsInRole("Admin"))
     {
@@ -14,19 +17,35 @@
         </p>
     }
 
-    <table class="table">
+    @* TODO: Add filters by category. *@
+    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+    {
+        <div class="row align-items-center gy-3 mt-3 mb-0">
+            <div class="col-md-1">
+                <label for="searchFilter" class="text-uppercase">Search: </label>
+            </div>
+            <div class="col-md-6">
+                @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4 d-flex align-items-center">
+                <input type="submit" value="Search" class="btn btn-primary btn-sm mx-3" />
+                @Html.ActionLink("Reset", "Index", "Products", null, new { @class = "btn btn-secondary btn-sm mx-3" })
+            </div>
+        </div>
+    }
+    <table class="table mb-0">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductImage)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ProductImage)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ProductName)
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.UnitsInStock)
@@ -35,7 +54,7 @@
                     @Html.DisplayNameFor(model => model.DateReleased)
                 </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.Category.CategoryName)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Category.CategoryName)
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.ProductStatus.Status)
@@ -76,16 +95,24 @@
                     </td>*@
                 <td>
                     @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "text-muted" })
-                    
+
                 </td>
                 @if (User.IsInRole("Admin"))
                 {
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "link-info" }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-                                </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "link-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                    </td>
                 }
             </tr>
         }
     </table>
+    <div class="min-vw-100 d-flex mt-0">
+        <div class="d-inline-block">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.SearchString }))
+        </div>
+        @*<p class="my-auto text-muted d-inline-block" style="margin-left: 10px;">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        </p>*@
+    </div>
 </div>

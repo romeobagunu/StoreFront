@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using System.Drawing;//Added for access to Image class.
 using StoreFront.Data.EF;
 using StoreFront.UI.MVC.Utilities;//Added for access to ImageUtility
+using PagedList;
+using PagedList.Mvc;//Added for access to Server-Side Paged Listing
 
 namespace StoreFront.UI.MVC.Controllers
 {
@@ -17,10 +19,24 @@ namespace StoreFront.UI.MVC.Controllers
         private StoreFrontEntities db = new StoreFrontEntities();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1)
         {
-            var products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).OrderBy(p => p.CategoryID).ThenBy(p => p.DateReleased);
-            return View(products.ToList());
+            //Sets records per page to 6
+            int pageSize = 6;
+
+            var products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).OrderBy(p => p.CategoryID).ThenBy(p => p.DateReleased).ToList();
+
+            #region Search
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.ProductName.ToLower().Contains(searchString.ToLower())).ToList();
+            }
+
+            ViewBag.SearchString = searchString;
+            #endregion
+
+            return View(products.ToPagedList(page, pageSize));
         }
 
         // GET: Products/Details/5

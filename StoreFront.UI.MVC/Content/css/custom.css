@@ -13,3 +13,11 @@
 #IndexHero {
 
 }
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    cursor: default;
+    background-color: #da4d4d;
+    border-color: #da4d4d;
+    color: #fff;
+}

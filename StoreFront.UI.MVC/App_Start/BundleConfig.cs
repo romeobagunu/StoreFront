@@ -42,6 +42,7 @@ namespace StoreFront.UI.MVC
                 "~/Content/vendor/choices.js/public/assets/styles/choices.css",
                 "~/Content/css/jquery-ui.min.css",
                 "~/Content/css/jquery-ui.structure.min.css",
+                "~/Content/css/PagedList.css",
                 "~/Content/css/style.red.min.css",
                 "~/Content/css/custom.css"
                 ));
