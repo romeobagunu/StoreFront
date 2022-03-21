@@ -30,3 +30,27 @@
     border-color: #da4d4d;
     color: #fff;
 }
+
+.cartQuantityForm {
+    max-width: 50%;
+    display: inline-block;
+}
+
+.cartQuantityButton {
+    max-width: 50%;
+    display: inline-block;
+    margin-left: 1em;
+}
+
+@media (max-width: 992px) {
+    .cartQuantityForm {
+        width: 75%;
+        display: block;
+    }
+
+    .cartQuantityButton {
+        width: 100%;
+        display: block;
+        margin-left: 0;
+    }
+}

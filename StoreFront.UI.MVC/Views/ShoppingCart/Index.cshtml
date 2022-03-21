@@ -1,0 +1,95 @@
+﻿@*@model IEnumerable<StoreFront.UI.MVC.Models.CartItemViewModel>*@
+@model Dictionary<int, StoreFront.UI.MVC.Models.CartItemViewModel>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+
+    //Nullable decimal tracks the total cost of items in the cart.
+    decimal? cartTotal = 0;
+    //Tracks the number of items in the cart.
+    int totalCountOfItems = 0;
+}
+
+<div class="min-vh-100">
+    <!-- Contact Banner -->
+    <div class="bg-success py-3 text-white min-vw-100">
+        <div class="container p-3 align-items-center">
+            <h3 class="text-uppercase">@ViewBag.Title</h3>
+        </div>
+    </div>
+
+    
+
+    @if (ViewBag.Message != null)
+    {
+    <div class="container px-3 py-5">
+        <div class="alert alert-warning">
+            <h3>@ViewBag.Message</h3>
+        </div>
+        @Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-secondary" })
+    </div>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Content/img/t_@item.Value.Product.ProductImage" alt="@item.Value.Product.ProductName" />
+                    </td>
+                    <td>@item.Value.Product.ProductName</td>
+                    <td>@string.Format($"{item.Value.Product.Price:c}")</td>
+                    <td>
+                        <div>
+                            @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+                            {
+                                //Pass the id of the product on this line.
+                                @Html.Hidden("productID", item.Value.Product.ProductID)
+                                @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control cartQuantityForm" })
+                                <input type="submit" value="Update" class="btn btn-info cartQuantityButton" />
+                            }
+                        </div>
+                        @{ totalCountOfItems += item.Value.Qty; }
+                    </td>
+                    <td>
+                        @{
+                            decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
+                            cartTotal += lineTotal;
+                        }
+                        @string.Format($"{lineTotal:c}")
+                    </td>
+                    <td>
+                        @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Value.Product.ProductID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <!-- Cart Banner -->
+        <div class="bg-white py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 p-3 text-left">
+                        <h3 class="text-success mb-3">
+                            Total (before shipping &amp; taxes): @string.Format($"{cartTotal:c}")
+                        </h3>
+                        <a class="btn btn-success" style="text-align: left;" href="@Url.Action("Index", "Home")">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>
