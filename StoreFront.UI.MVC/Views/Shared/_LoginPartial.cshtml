@@ -16,36 +16,29 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-        <div class="d-flex justify-content-md-end justify-content-between">
-            <ul class="list-inline mb-0">
-                <li class="list-inline-item">
-                    <div class="text-xs text-uppercase fw-bold text-reset">@string.Format($"Welcome, {userFN}!")</div>
-                </li>
-                <li class="list-inline-item">
-                    <a href="javascript:document.getElementById('logoutForm').submit()" class="text-xs text-uppercase fw-bold text-reset text-decoration-none">
-                        <i class="fas fa-sign-out-alt me-2"></i>
-                        <span class="d-none d-md-inline-block">Log out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <li class="list-inline-item">
+            <div class="text-xs text-uppercase fw-bold text-reset">@string.Format($"Welcome, {userFN}!")</div>
+        </li>
+        <li class="list-inline-item">
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="text-xs text-uppercase fw-bold text-reset text-decoration-none">
+                <i class="fas fa-sign-out-alt me-2"></i>
+                <span class="d-none d-md-inline-block">Log out</span>
+            </a>
+        </li>
     }
 }
 else
 {
-    <div class="d-flex justify-content-md-end justify-content-between">
-        <ul class="list-inline mb-0">
-            <li class="list-inline-item mx-2">
-                <a href="@Url.Action("Register", "Account", routeValues: null)" id="registerLink" class="text-xs text-uppercase fw-bold text-reset">
-                    <i class="fas fa-user me-2"></i><span class="d-none d-md-inline-block">Register</span>
-                </a>
-            </li>
-            <li class="list-inline-item mx-2">
-                <a href="@Url.Action("Login", "Account", routeValues: null)" id="loginLink" class="text-xs text-uppercase fw-bold text-reset">
-                    <i class="fas fa-sign-in-alt me-2"></i><span class="d-none d-md-inline-block">Login</span>
-                </a>
-        </ul>
-    </div>
+    <li class="list-inline-item mx-2">
+        <a href="@Url.Action("Register", "Account", routeValues: null)" id="registerLink" class="text-xs text-uppercase fw-bold text-reset">
+            <i class="fas fa-user me-2"></i><span class="d-none d-md-inline-block">Register</span>
+        </a>
+    </li>
+    <li class="list-inline-item mx-2">
+        <a href="@Url.Action("Login", "Account", routeValues: null)" id="loginLink" class="text-xs text-uppercase fw-bold text-reset">
+            <i class="fas fa-sign-in-alt me-2"></i><span class="d-none d-md-inline-block">Login</span>
+        </a>
+    </li>
 }
 
 @* TODO: Add font-awesome icons to LoginPartial?

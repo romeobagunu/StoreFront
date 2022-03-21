@@ -30,12 +30,12 @@
     <link rel="shortcut icon" href="~/Content/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="~/Content/img/apple-touch-icon.png">
     @*<link rel="apple-touch-icon" sizes="57x57" href="~/Content/img/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/img/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/img/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/img/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/img/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/img/apple-touch-icon-152x152.png">*@
+        <link rel="apple-touch-icon" sizes="72x72" href="~/Content/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="~/Content/img/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="~/Content/img/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="~/Content/img/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="~/Content/img/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="~/Content/img/apple-touch-icon-152x152.png">*@
 
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
@@ -51,15 +51,28 @@
                 <div class="row d-flex align-items-center">
                     <div class="col-md-6">
                         @* TODO: New Social Links?
-                            <ul class="list-inline mb-0 ms-lg-4">
-                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Email"><i class="fas fa-envelope"></i></a></li>
-                        </ul>*@
+                                <ul class="list-inline mb-0 ms-lg-4">
+                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Email"><i class="fas fa-envelope"></i></a></li>
+                            </ul>*@
                     </div>
                     <div class="col-md-6">
-                        @Html.Partial("_LoginPartial")
+                        <div class="d-flex justify-content-md-end justify-content-between">
+                            <ul class="list-inline mb-0">
+                                @Html.Partial("_LoginPartial")
+                                @if (Session["cart"] != null)
+                                {
+                                    <li class="list-inline-item mx-2">
+                                        <a href="@Url.Action("Index", "ShoppingCart")" class="text-xs text-uppercase fw-bold text-reset text-decoration-none">
+                                            <i class="fas fa-shopping-cart me-2"></i>
+                                            <span class="d-none d-md-inline-block">Cart</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,39 +122,39 @@
                     </div>
                 </div>
                 @*
-                            <div class="col-lg-3">
-                                <h4 class="mb-3 text-uppercase">Blog</h4>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex align-items-center mb-2">
-                                        <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
-                                        <div class="ms-2">
-                                            <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-2">
-                                        <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
-                                        <div class="ms-2">
-                                            <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex align-items-center mb-2">
-                                        <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
-                                        <div class="ms-2">
-                                            <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Very very long blog post name</a></h6>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3">
-                                <ul class="list-inline mb-0">
-                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
-                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
-                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
-                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
-                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
-                    <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
-                </ul>
-                            </div>
+                                <div class="col-lg-3">
+                                    <h4 class="mb-3 text-uppercase">Blog</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="d-flex align-items-center mb-2">
+                                            <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
+                                            <div class="ms-2">
+                                                <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
+                                            </div>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
+                                            <div class="ms-2">
+                                                <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Blog post name</a></h6>
+                                            </div>
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <a href="blog-post.html"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="40"></a>
+                                            <div class="ms-2">
+                                                <h6 class="text-uppercase mb-0"> <a class="text-reset" href="blog-post.html">Very very long blog post name</a></h6>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3">
+                                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
+                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
+                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
+                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare3.jpg" alt="..." width="70"></a></li>
+                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare2.jpg" alt="..." width="70"></a></li>
+                        <li class="list-inline-item mb-2 me-2 pb-1"><a href="#"><img class="img-fluid" src="~/Content/img/detailsquare.jpg" alt="..." width="70"></a></li>
+                    </ul>
+                                </div>
                 *@
 
             </div>
