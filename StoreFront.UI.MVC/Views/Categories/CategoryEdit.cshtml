@@ -1,0 +1,26 @@
+﻿@model StoreFront.Data.EF.Category
+
+
+@using (Html.BeginForm("AjaxEdit", "Categories", FormMethod.Post, new { id = "CategoryEditForm" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <table class="form-horizontal">
+        <tr>
+            @Html.HiddenFor(model => model.CategoryID)
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <td>
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </td>
+
+            <td>
+                <input type="button" id="saveUpdate" value="Save" class="btn btn-secondary btn-sm" />
+            </td>
+        </tr>
+    </table>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

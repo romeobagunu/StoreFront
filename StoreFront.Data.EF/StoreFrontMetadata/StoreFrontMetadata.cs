@@ -64,7 +64,6 @@ namespace StoreFront.Data.EF//.StoreFrontMetadata
         [Required(ErrorMessage = "*")]
         [StringLength(50, ErrorMessage = "*Must be 50 characters or less")]
         [Display(Name = "Category")]
-        [UIHint("MultilineText")]
         public string CategoryName { get; set; }
     }
 

@@ -15,6 +15,9 @@
         <p>
             @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
         </p>
+        <p>
+            @Html.ActionLink("Edit Categories", "Index", "Categories", null, new { @class = "btn btn-secondary" })
+        </p>
     }
 
     @using (Html.BeginForm("Index", "Products", FormMethod.Get))
@@ -31,13 +34,13 @@
             </div>
         </div>
     }
-        <div>
-            @Html.ActionLink("Video Games", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Video Games", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
+    <div>
+        @Html.ActionLink("Video Games", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Video Games", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
 
-            @Html.ActionLink("Music", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Music", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
+        @Html.ActionLink("Music", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Music", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
 
-            @Html.ActionLink("Reset", "Index", "Products", null, new { @class = "btn btn-secondary btn-sm" })
-        </div>
+        @Html.ActionLink("Reset", "Index", "Products", null, new { @class = "btn btn-secondary btn-sm" })
+    </div>
     <table class="table mb-0">
         <tr>
             <th>

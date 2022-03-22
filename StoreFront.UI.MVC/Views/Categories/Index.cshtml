@@ -1,0 +1,219 @@
+﻿@model IEnumerable<StoreFront.Data.EF.Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+
+
+<!-- Categories Banner -->
+<div class="bg-secondary py-3 text-white min-vw-100">
+    <div class="container p-3 align-items-center">
+        <h2 class="text-uppercase">@ViewBag.Title</h2>
+    </div>
+</div>
+
+<div class="container p-3 min-vh-100">
+    <div id="MessageDisplay">
+        <div id="MessageContent"></div>
+    </div>
+
+    <div class="my-3">
+        @*@Html.ActionLink("Create New", "Create")*@
+        <button id="toggleCategoryCreate" class="btn btn-success btn-sm">Add Category</button>
+    </div>
+
+    <div id="CategoryCreate">
+        @Html.Partial("CategoryCreate", new StoreFront.Data.EF.Category())
+    </div>
+
+    <table class="table" id="CategoriesTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr id="Category-@item.CategoryID">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <a href="#" class="EditLink text-secondary" id="@item.CategoryID">Edit</a> |
+                    @Ajax.ActionLink("Delete", "AjaxDelete", "Categories",
+                   new { id = item.CategoryID },
+                   new AjaxOptions
+                   {
+                       HttpMethod = "POST",
+                       Confirm = $"Are you sure you want to delete {item.CategoryName}?",
+                       OnSuccess = "deleteConfirmed",
+                       OnFailure = "deleteFailed"
+                   }
+                   )
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+@section scripts {
+
+    <script>
+
+        // ***** AJAX DELETE *****
+        function deleteConfirmed(response, status, data) {
+
+            //Retrieve the ID of the row to delete on the View.
+            var rowId = "#Category-" + response.id;
+
+            //Remove the deleted row from the View.
+            $("#CategoriesTable").find(rowId).remove();
+
+            //Display success message.
+            $("#MessageContent").html("<div class='alert alert-success'>" + response.message + "</div>");
+
+        }
+
+        function deleteFailed(response, status, data) {
+
+            //Display error message.
+            $("#MessageContent").html("<div class='alert alert-danger'>Delete failed. Is this category referenced by a product? If so, please change that product's category or delete all products associated with this category.</div>");
+
+        }
+
+        // ***** AJAX CREATE *****
+
+        //Default the CategoryCreate partial to hidden.
+        $("#CategoryCreate").hide();
+
+        //Add an event listener to the CategoryCreate toggle button.
+        $("#toggleCategoryCreate").click(function () {
+
+            //On click, toggle the CategoryCreate partial
+            $("#CategoryCreate").toggle();
+
+        });
+
+        //Add a listener for the CategoryCreateForm being submitted.
+        $("#CategoryCreateForm").submit(function (e) {
+
+            //Prevent the submit from reloading the page.
+            e.preventDefault();
+
+            //Store the submitted form data as a serialized array.
+            var formData = $(this).serializeArray();
+
+            //Log the object for debugging later.
+            console.log(formData);
+
+            $.ajax({
+                url: "/Categories/AjaxCreate",
+                type: "POST",
+                data: formData,
+                dataType: "json",
+                error: function (e) {
+                    $("#MessageContent").html("<div class='alert alert-danger'>There was a problem creating new category. Please try again or contact the site administrator.</div>");
+                },
+                success: function (foo) {
+                    $("#MessageContent").html("<div class='alert alert-success'>The category was successfully added.</div>");
+                    $("#CategoryCreateForm")[0].reset();
+                    $(function () {
+                        var row = '<tr><td>' + foo.CategoryName
+                            + '</td><td>Refresh to view options</td></tr>';
+                        $("#CategoriesTable").append(row);
+                    });
+                }
+            });
+
+        });
+
+        // ***** AJAX UPDATE *****
+
+        //Create an object to store the original content.
+        var originalContent = null;
+
+        //Target all the edit links on the table and add event listener.
+        $("a.EditLink").click(function (e) {
+
+            //Prevent a reload!
+            e.preventDefault();
+
+            //Create a variable to store the category's ID.
+            var categoryID = $(this).attr("id");
+
+            //Target the children of the category's row.
+            var row = $("#Category-" + categoryID).children();
+
+            //Store the category's data in the object.
+            originalContent = {
+                CatId: categoryID,
+                CatName: row[0].innerText
+            }
+
+            //Log for debugging.
+            console.log(originalContent);
+
+            $.get("/Categories/CategoryEdit/" + categoryID, function (data) {
+                $("#Category-" + categoryID).replaceWith(
+                    '<tr id="Category-' + categoryID + '"><td>' + data + '</td></tr>');
+            });
+
+            //Add an event listener for the saveUpdate button.
+            $(document).on("click", "#saveUpdate", function () {
+
+                //Store the data as a serialized object.
+                var formData = $("#CategoryEditForm").serializeArray();
+
+                //Send a please wait message.
+                $("#MessageContent").html("<div class='alert alert-info'>Please wait...</div>")
+
+                $.ajax({
+                    url: "/Categories/AjaxEdit",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    success: function (data) {
+
+                        //Send a success message.
+                        $("#MessageContent").html("<div class='alert alert-success'>Your record was successfully updated!</div>");
+
+                        //Reset the form.
+                        $("#CategoryEditForm")[0].reset();
+
+                        $(function () {
+
+                            //Create an object of row code.
+                            var row = '<tr><td>' + data.CategoryName + '</td><td>Refresh to view options</tr>';
+
+                            //Replace the displayed row.
+                            $('#Category-' + data.CategoryID).replaceWith(row);
+
+                        });
+                    },
+                    error: function (e) {
+
+                        //Send an error message.
+                        $("#MessageContent").html("<div class='alert alert-danger'>There was an error updating the record. Please try again or contact the administrator.</div>");
+
+                        $(function () {
+
+                            //Create an object of row code with the originalContent.
+                            var row = '<tr><td>' + originalContent.CatName + '</td><td>Refresh to view options</tr>';
+
+                            //Restore the row.
+                            $('#Category-' + originalContent.CatId).replaceWith(row);
+
+                        });//end row restoration function
+                    }//end error
+                });//end ajax
+            });//end event listener for #saveUpdate
+
+        })//end event listener for EditLink
+
+    </script>
+
+}

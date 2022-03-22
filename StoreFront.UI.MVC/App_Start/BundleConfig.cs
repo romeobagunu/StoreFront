@@ -8,10 +8,9 @@ namespace StoreFront.UI.MVC
         public static void RegisterBundles(BundleCollection bundles)
         {
             //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        //"~/Scripts/jquery-{version}.js"));
+            //"~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery-3.3.1.min.js",
                         "~/Scripts/jquery.validate*",
                         "~/Scripts/jquery-ui.min.js"
                         ));
@@ -22,18 +21,19 @@ namespace StoreFront.UI.MVC
                         "~/Scripts/modernizr-*"));
 
             //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      //"~/Scripts/bootstrap.js",
-                      //"~/Scripts/respond.js"));
+            //"~/Scripts/bootstrap.js",
+            //"~/Scripts/respond.js"));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include(
-                      //"~/Content/bootstrap.css",
-                      //"~/Content/site.css"));
+            //"~/Content/bootstrap.css",
+            //"~/Content/site.css"));
 
             bundles.Add(new Bundle("~/bundles/scripts-template").Include(
                 "~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js",
                 "~/Content/vendor/waypoints/lib/noframework.waypoints.js",
                 "~/Content/vendor/swiper/swiper-bundle.min.js",
                 "~/Content/vendor/choices.js/public/assets/scripts/choices.js",
+                "~/Scripts/jquery-3.3.1.min.js",
                 "~/Scripts/theme.js"
                 ));
 
@@ -47,7 +47,7 @@ namespace StoreFront.UI.MVC
                 "~/Content/css/custom.css"
                 ));
 
-            
+
 
         }
     }
