@@ -28,6 +28,10 @@ namespace StoreFront.UI.MVC.Controllers
             //Creates products List, ordered by Category then by Release Date.
             var products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).OrderBy(p => p.CategoryID).ThenBy(p => p.DateReleased).ToList();
 
+            List<string> categories = db.Categories.Select(c => c.CategoryName).ToList<string>();
+
+            ViewBag.CategoriesList = categories;
+
             #region Filters
 
             if (!string.IsNullOrEmpty(searchString) && !string.IsNullOrEmpty(categoryFilter))

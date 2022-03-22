@@ -35,11 +35,17 @@
         </div>
     }
     <div>
-        @Html.ActionLink("Video Games", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Video Games", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
 
-        @Html.ActionLink("Music", "Index", "Products", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = "Music", page = 1 }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
-
-        @Html.ActionLink("Reset", "Index", "Products", null, new { @class = "btn btn-secondary btn-sm" })
+        <p class="my-3">
+            <span class="text-gray-500">Filter by Category:</span>
+            @{
+                foreach (string catName in ViewBag.CategoriesList)
+                {
+                    <a href="@Url.Action("Index", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = catName, page = 1 })" class="text-muted mx-2">@catName</a>
+                }
+            }
+            @Html.ActionLink("Reset Filters", "Index", "Products", null, new { @class = "btn btn-sm btn-secondary mx-2" })
+        </p>
     </div>
     <table class="table mb-0">
         <tr>
