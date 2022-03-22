@@ -13,32 +13,58 @@
         userFN = currentUser.FirstName;
     }
 
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-        @Html.AntiForgeryToken()
-        <li class="list-inline-item">
-            <div class="text-xs text-uppercase fw-bold text-reset">@string.Format($"Welcome, {userFN}!")</div>
-        </li>
-        <li class="list-inline-item">
-            <a href="javascript:document.getElementById('logoutForm').submit()" class="text-xs text-uppercase fw-bold text-reset text-decoration-none">
-                <i class="fas fa-sign-out-alt me-2"></i>
-                <span class="d-none d-md-inline-block">Log out</span>
-            </a>
-        </li>
-    }
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="hpDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+        <ul class="dropdown-menu" aria-labelledby="hpDropdown">
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+                <li>
+                    <a class="dropdown-item text-uppercase border-bottom" href="javascript:document.getElementById('logoutForm').submit()" role="button">
+                        <i class="fas fa-sign-out-alt me-2"></i>Log out
+                    </a>
+                </li>
+            }
+            @if (Session["cart"] != null)
+            {
+                <li>
+                    <a class="dropdown-item text-uppercase border-bottom" href="@Url.Action("Index", "ShoppingCart")" >
+                        <i class="fas fa-shopping-cart me-2"></i>Cart
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+    
 }
 else
 {
-    <li class="list-inline-item mx-2">
-        <a href="@Url.Action("Register", "Account", routeValues: null)" id="registerLink" class="text-xs text-uppercase fw-bold text-reset">
-            <i class="fas fa-user me-2"></i><span class="d-none d-md-inline-block">Register</span>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="hpDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+        <ul class="dropdown-menu" aria-labelledby="hpDropdown">
+            <li>
+                <a class="dropdown-item text-uppercase border-bottom" href="@Url.Action("Register", "Account", routeValues: null)" id="registerLink">
+                    <i class="fas fa-user me-2"></i>Register
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item text-uppercase border-bottom" href="@Url.Action("Login", "Account", routeValues: null)" id="loginLink">
+                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    @*<li class="nav-item">
+        <a href="@Url.Action("Register", "Account", routeValues: null)" id="registerLink" class="nav-link">
+            <i class="fas fa-user me-2"></i>Register
         </a>
     </li>
-    <li class="list-inline-item mx-2">
-        <a href="@Url.Action("Login", "Account", routeValues: null)" id="loginLink" class="text-xs text-uppercase fw-bold text-reset">
+    <li class="nav-item">
+        <a href="@Url.Action("Login", "Account", routeValues: null)" id="loginLink" class="nav-link">
             <i class="fas fa-sign-in-alt me-2"></i><span class="d-none d-md-inline-block">Login</span>
         </a>
-    </li>
+    </li>*@
 }
 
 @* TODO: Add font-awesome icons to LoginPartial?

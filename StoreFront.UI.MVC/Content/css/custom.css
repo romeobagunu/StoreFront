@@ -6,9 +6,23 @@
     min-height: 70vh;
 }
 
+#topBar {
+    height: 48px;
+}
 
+.nav-holder {
+    position: relative;
+    top: 0;
+    background: rgba(25, 25, 25, 0.2);
+    background-color: transparent;
+}
 
 /*** INDEX ***/
+
+#FeaturedProduct img {
+    position: relative;
+    max-height: calc(100vh-48px);
+}
 
 .category-icon-lg img {
     border-radius: 50%;

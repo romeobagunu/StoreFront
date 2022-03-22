@@ -48,41 +48,8 @@
 </head>
 <body>
     <div class="wide" id="all">
-        <!-- Top bar-->
-        <div class="top-bar py-2" id="topBar" style="background: #555">
-            <div class="container px-lg-0 text-light py-1">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-6">
-                        @* TODO: New Social Links?
-                                <ul class="list-inline mb-0 ms-lg-4">
-                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li class="list-inline-item text-gray-600 m-0"><a class="text-xs social-link-hover" href="#" title="Email"><i class="fas fa-envelope"></i></a></li>
-                            </ul>*@
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-flex justify-content-md-end justify-content-between">
-                            <ul class="list-inline mb-0">
-                                @Html.Partial("_LoginPartial")
-                                @if (Session["cart"] != null)
-                                {
-                                    <li class="list-inline-item mx-2">
-                                        <a href="@Url.Action("Index", "ShoppingCart")" class="text-xs text-uppercase fw-bold text-reset text-decoration-none">
-                                            <i class="fas fa-shopping-cart me-2"></i>
-                                            <span class="d-none d-md-inline-block">Cart</span>
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Top bar end-->
         <!-- Navbar Sticky-->
-        <header class="nav-holder make-sticky">
+        <header class="nav-holder fixed-top">
             <div class="navbar navbar-light bg-white navbar-expand-lg py-0" id="navbar">
                 <div class="container py-3 py-lg-0 px-lg-0">
                     <!-- Navbar brand--><a class="navbar-brand" href="@Url.Action("Index", "Home")"><img class="d-none d-md-inline-block" src="~/Content/img/logo.png" alt="Retro Tech logo" style="max-width: 187px;"><img class="d-inline-block d-md-none" src="~/Content/img/logo.png" alt="Retro Tech logo" style="max-width: 110px;"><span class="sr-only">Retro Tech - go to homepage</span></a>
@@ -103,6 +70,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Contact", "Home")" role="button">Contact</a>
                             </li>
+                            @Html.Partial("_LoginPartial")
                         </ul>
                     </div>
                 </div>
