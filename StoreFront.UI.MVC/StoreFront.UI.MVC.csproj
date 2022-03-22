@@ -277,6 +277,7 @@
     <Content Include="Content\img\slide4.jpg" />
     <Content Include="Content\img\slide5.jpg" />
     <Content Include="Content\img\slide6.jpg" />
+    <Content Include="Content\img\sung-wang-g4DgCF90EM4-unsplash-cropped.jpg" />
     <Content Include="Content\img\template-easy-code.png" />
     <Content Include="Content\img\template-easy-customize-less.png" />
     <Content Include="Content\img\template-easy-customize.png" />
@@ -629,6 +630,8 @@
     <Content Include="Scripts\js-cookie.js" />
     <Content Include="Scripts\map.js" />
     <Content Include="Scripts\theme.js" />
+    <Content Include="Content\img\christian-buehner-DItYlc26zVI-unsplash-cropped.jpg" />
+    <Content Include="Content\img\harps-joseph-tAvpDE7fXgY-unsplash-cropped.jpg" />
     <Content Include="_Archive\_OriginalContent\bootstrap-theme.css" />
     <Content Include="_Archive\_OriginalContent\bootstrap-theme.min.css" />
     <Content Include="_Archive\_OriginalContent\bootstrap.css" />

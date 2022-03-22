@@ -1,12 +1,150 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<hgroup>
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
-</hgroup>
-<div class="row-fluid">
-    <div class="span12">
-        <p>Use this area to provide additional information.</p>
+<!-- Company Introduction Section -->
+<section class="py-5">
+    <div class="container px-3 py-4">
+        <header>
+            <h2 class="text-uppercase mb-4">About Us</h2>
+            <p class="lead">Welcome to Retro Tech: an online storefront devoted to making vintage technology accessible to the next generation. We sell durable and reliable devices at an affordable price.</p>
+        </header>
     </div>
-</div>
+</section>
+
+<!-- Values Section -->
+<section class="pb-5">
+    <div class="container pb-4 px-3">
+        <h2 class="text-uppercase mb-4">Our values</h2>
+        <ul class="list-unstyled">
+            <li class="d-flex mb-3">
+                <div class="icon-filled me-2"><i class="fas fa-arrow-right"></i></div>
+                <p class="text-sm mb-0">Affordable prices.</p>
+            </li>
+            <li class="d-flex mb-3">
+                <div class="icon-filled me-2"><i class="fas fa-arrow-right"></i></div>
+                <p class="text-sm mb-0">Reliable and durable restorations.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+@* TODO: Make this dynamic! *@
+<!-- Our Team Section -->
+<section class="pb-5">
+    <div class="container px-3">
+        <header class="mb-5">
+            <h2 class="text-uppercase">Meet our team</h2>
+        </header>
+        <div class="row gy-3 gx-5">
+            <div class="col-lg-4 col-md-6 text-center p-5">
+                <img class="avatar avatar-xxl p-2 mb-4" src="~/Content/img/christian-buehner-DItYlc26zVI-unsplash-cropped.jpg" alt="Han Solo">
+                <h3 class="h4 mb-1 text-uppercase">Han Solo</h3>
+                <p class="text-muted small text-uppercase">Founder</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a class="social-link facebook" href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item"><a class="social-link twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center p-5">
+                <img class="avatar avatar-xxl p-2 mb-4" src="~/Content/img/harps-joseph-tAvpDE7fXgY-unsplash-cropped.jpg" alt="Luke Skywalker">
+                <h3 class="h4 mb-1 text-uppercase">Luke Skywalker</h3>
+                <p class="text-muted small text-uppercase">CTO</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a class="social-link facebook" href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item"><a class="social-link twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center p-5">
+                <img class="avatar avatar-xxl p-2 mb-4" src="~/Content/img/sung-wang-g4DgCF90EM4-unsplash-cropped.jpg" alt="Obiwan Kenobi">
+                <h3 class="h4 mb-1 text-uppercase">Obiwan Kenobi</h3>
+                <p class="text-muted small text-uppercase">CFO</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a class="social-link facebook" href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item"><a class="social-link twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+@*
+    TODO: Testimonials Section
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-pentagon border-top border-gray-600">
+        <div class="container py-4 px-3">
+            <header class="mb-5">
+                <h2 class="text-uppercase mb-4">What our customers say</h2>
+                <p class="lead">We have worked with many clients and we always like to hear they come out from the cooperation happy and satisfied. Have a look what our clients said about us.</p>
+            </header>
+            <div class="row gx-3">
+                <div class="col-md-3">
+                    <div class="p-4 bg-white h-100 d-flex flex-column justify-content-between">
+                        <div class="mb-2">
+                            <p class="text-sm text-gray-600">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
+                            <p class="text-sm text-gray-600"></p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="fas fa-quote-left text-primary fa-2x"></i>
+                            <div class="d-flex align-items-center ms-3">
+                                <div class="me-3 text-end">
+                                    <h5 class="text-uppercase mb-0">John McIntyre</h5>
+                                    <p class="small text-muted mb-0">CEO, transTech</p>
+                                </div><img class="avatar p-1 flex-shrink-0" src="img/person-1.jpg" alt="John McIntyre" width="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-4 bg-white h-100 d-flex flex-column justify-content-between">
+                        <div class="mb-2">
+                            <p class="text-sm text-gray-600">The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. &quot;What's happened to me? &quot; he thought. It wasn't a dream.</p>
+                            <p class="text-sm text-gray-600"></p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="fas fa-quote-left text-primary fa-2x"></i>
+                            <div class="d-flex align-items-center ms-3">
+                                <div class="me-3 text-end">
+                                    <h5 class="text-uppercase mb-0">John McIntyre</h5>
+                                    <p class="small text-muted mb-0">CEO, transTech</p>
+                                </div><img class="avatar p-1 flex-shrink-0" src="img/person-2.jpg" alt="John McIntyre" width="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-4 bg-white h-100 d-flex flex-column justify-content-between">
+                        <div class="mb-2">
+                            <p class="text-sm text-gray-600">His room, a proper human room although a little too small, lay peacefully between its four familiar walls.</p>
+                            <p class="text-sm text-gray-600">A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="fas fa-quote-left text-primary fa-2x"></i>
+                            <div class="d-flex align-items-center ms-3">
+                                <div class="me-3 text-end">
+                                    <h5 class="text-uppercase mb-0">John McIntyre</h5>
+                                    <p class="small text-muted mb-0">CEO, transTech</p>
+                                </div><img class="avatar p-1 flex-shrink-0" src="img/person-3.png" alt="John McIntyre" width="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-4 bg-white h-100 d-flex flex-column justify-content-between">
+                        <div class="mb-2">
+                            <p class="text-sm text-gray-600">His room, a proper human room although a little too small, lay peacefully between its four familiar walls.</p>
+                            <p class="text-sm text-gray-600">A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="fas fa-quote-left text-primary fa-2x"></i>
+                            <div class="d-flex align-items-center ms-3">
+                                <div class="me-3 text-end">
+                                    <h5 class="text-uppercase mb-0">John McIntyre</h5>
+                                    <p class="small text-muted mb-0">CEO, transTech</p>
+                                </div><img class="avatar p-1 flex-shrink-0" src="img/person-3.png" alt="John McIntyre" width="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+*@
