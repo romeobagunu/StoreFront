@@ -10,71 +10,76 @@
     int totalCountOfItems = 0;
 }
 
-<div class="min-vh-100">
-    <!-- Shopping Cart Banner -->
-    <div class="bg-success py-3 text-white min-vw-100">
-        <div class="container p-3 align-items-center">
-            <h3 class="text-uppercase">@ViewBag.Title</h3>
-        </div>
+<!-- Shopping Cart Page Header -->
+<section class="page-header">
+    <div class="container px-3 py-0">
+        <h1>@ViewBag.Title</h1>
     </div>
+</section>
+
+<div class="min-vh-100 bg-white">
 
     @if (ViewBag.Message != null)
     {
-    <div class="container px-3 py-5">
-        <div class="alert alert-warning">
-            <h3>@ViewBag.Message</h3>
+        <div class="container px-3 py-5">
+            <div class="alert alert-warning">
+                <h3>@ViewBag.Message</h3>
+            </div>
+            @Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-secondary" })
         </div>
-        @Html.ActionLink("Back to Shopping", "Index", "Products", null, new { @class = "btn btn-secondary" })
-    </div>
     }
     else
     {
-        <table class="table">
-            <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        <!-- Shopping Cart Section -->
+        <section class="container px-3 py-5">
+            <table class="table">
                 <tr>
-                    <td>
-                        <img src="~/Content/img/t_@item.Value.Product.ProductImage" alt="@item.Value.Product.ProductName" />
-                    </td>
-                    <td>@item.Value.Product.ProductName</td>
-                    <td>@string.Format($"{item.Value.Product.Price:c}")</td>
-                    <td>
-                        <div>
-                            @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
-                            {
-                                //Pass the id of the product on this line.
-                                @Html.Hidden("productID", item.Value.Product.ProductID)
-                                @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control cartQuantityForm" })
-                                <input type="submit" value="Update" class="btn btn-info cartQuantityButton" />
-                            }
-                        </div>
-                        @{ totalCountOfItems += item.Value.Qty; }
-                    </td>
-                    <td>
-                        @{
-                            decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
-                            cartTotal += lineTotal;
-                        }
-                        @string.Format($"{lineTotal:c}")
-                    </td>
-                    <td>
-                        @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Value.Product.ProductID }, new { @class = "btn btn-danger" })
-                    </td>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
                 </tr>
-            }
 
-        </table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Content/img/t_@item.Value.Product.ProductImage" alt="@item.Value.Product.ProductName" />
+                        </td>
+                        <td>@item.Value.Product.ProductName</td>
+                        <td>@string.Format($"{item.Value.Product.Price:c}")</td>
+                        <td>
+                            <div>
+                                @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+                                {
+                                    //Pass the id of the product on this line.
+                                    @Html.Hidden("productID", item.Value.Product.ProductID)
+                                    @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control cartQuantityForm" })
+                                    <input type="submit" value="Update" class="btn btn-info cartQuantityButton" />
+                                }
+                            </div>
+                            @{ totalCountOfItems += item.Value.Qty; }
+                        </td>
+                        <td>
+                            @{
+                                decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
+                                cartTotal += lineTotal;
+                            }
+                            @string.Format($"{lineTotal:c}")
+                        </td>
+                        <td>
+                            @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Value.Product.ProductID }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
 
-        <!-- Cart Banner -->
+            </table>
+
+        </section>
+
+        <!-- Checkout Banner -->
         <div class="bg-white py-3">
             <div class="container">
                 <div class="row">

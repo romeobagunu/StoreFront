@@ -1,12 +1,20 @@
 ﻿@model StoreFront.Data.EF.Product
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete Product";
 }
-<div class="min-vh-100 d-flex">
-    <div class="my-auto min-vw-100">
+
+<!-- Product Delete Page Header -->
+<section class="page-header">
+    <div class="container px-3 py-0">
+        <h1>@ViewBag.Title</h1>
+    </div>
+</section>
+
+<div class="min-vh-100 bg-white">
+    <div class="py-auto">
         <!-- Product Details Section -->
-        <section class="container p-3 my-5">
+        <section class="container px-3 py-5">
             <div class="row gx-5">
                 <div class="col-md-5">
                     <img src="~/Content/img/@Model.ProductImage" alt="@Model.ProductName" class="img-fluid" />
@@ -35,7 +43,7 @@
         </section>
 
         <!-- Delete Banner -->
-        <div class="bg-primary py-3 text-white">
+        <div class="bg-danger py-3 text-white">
             <div class="container py-4">
                 <div class="col-lg-12 text-left my-3 text-uppercase">
                     <h3>Are you sure you want to delete @Model.ProductName?</h3>

@@ -3,23 +3,13 @@
 }
 
 <!-- Featured Product Banner -->
-<section id="FeaturedProduct">
-    <img class="img-fluid" src="~/Content/img/tps-l2-feature.jpg"/>
-</section>
+<section id="FeaturedProduct"></section>
 
 <!-- Intro Hero -->
-<section class="text-white bg-primary" id="IndexHero">
+<section class="text-white text-center" id="IndexHero">
     <div class="container py-5">
-        <div class="row py-3 gx-5">
-            <div class="col-md-6">
-                <a href="@Url.Action("Index", "Products")">
-                    <img class="ml-auto img-fluid" src="~/Content/img/logo.png" alt="Retro Tech logo">
-                </a>
-            </div>
-            <div class="col-md-3">
-                <h1 class="text-uppercase">Restored Vintage Technology</h1>
-            </div>
-        </div>
+        <h1 class="text-uppercase mt-5">Restored Vintage Technology</h1>
+        @Html.ActionLink("About Us", "About", "Home", null, new { @class = "btn btn-primary btn-lg mt-3 mb-5" })
     </div>
 </section>
 
@@ -49,6 +39,9 @@
                 <div class="text-center align-items-center category-icon-lg">
                     <a href="@Url.Action("Index", "Products")">
                         <img src="~/Content/img/gameboy-icon.png" />
+                    </a>
+
+                    <a href="@Url.Action("Index", "Products")">
                         <h4 class="text-uppercase mb-3">GAME BOYS &amp; CARTRIDGES</h4>
                     </a>
                 </div>

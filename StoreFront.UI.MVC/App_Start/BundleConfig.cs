@@ -43,7 +43,7 @@ namespace StoreFront.UI.MVC
                 "~/Content/css/jquery-ui.min.css",
                 "~/Content/css/jquery-ui.structure.min.css",
                 "~/Content/css/PagedList.css",
-                "~/Content/css/style.red.min.css",
+                "~/Content/css/style.default.min.css",
                 "~/Content/css/custom.css"
                 ));
 

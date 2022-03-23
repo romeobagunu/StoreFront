@@ -4,60 +4,62 @@
     ViewBag.Title = "Categories";
 }
 
-
-
-<!-- Categories Banner -->
-<div class="bg-secondary py-3 text-white min-vw-100">
-    <div class="container p-3 align-items-center">
-        <h2 class="text-uppercase">@ViewBag.Title</h2>
+<!-- Categories Page Header -->
+<section class="page-header">
+    <div class="container px-3">
+        <h1>@ViewBag.Title</h1>
     </div>
-</div>
+</section>
 
-<div class="container p-3 min-vh-100">
-    <div id="MessageDisplay">
-        <div id="MessageContent"></div>
-    </div>
+<div class="min-vh-100 bg-white">
+    <!-- Categories CRUD -->
+    <section class="container px-3">
+        <div id="MessageDisplay">
+            <div id="MessageContent"></div>
+        </div>
 
-    <div class="my-3">
-        @*@Html.ActionLink("Create New", "Create")*@
-        <button id="toggleCategoryCreate" class="btn btn-success btn-sm">Add Category</button>
-    </div>
+        <div class="py-3">
+            @*@Html.ActionLink("Create New", "Create")*@
+            <button id="toggleCategoryCreate" class="btn btn-success btn-sm">Add Category</button>
+        </div>
 
-    <div id="CategoryCreate">
-        @Html.Partial("CategoryCreate", new StoreFront.Data.EF.Category())
-    </div>
+        <div id="CategoryCreate">
+            @Html.Partial("CategoryCreate", new StoreFront.Data.EF.Category())
+        </div>
 
-    <table class="table" id="CategoriesTable">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr id="Category-@item.CategoryID">
-                <td>
-                    @Html.DisplayFor(modelItem => item.CategoryName)
-                </td>
-                <td>
-                    <a href="#" class="EditLink text-secondary" id="@item.CategoryID">Edit</a> |
-                    @Ajax.ActionLink("Delete", "AjaxDelete", "Categories",
-                   new { id = item.CategoryID },
-                   new AjaxOptions
-                   {
-                       HttpMethod = "POST",
-                       Confirm = $"Are you sure you want to delete {item.CategoryName}?",
-                       OnSuccess = "deleteConfirmed",
-                       OnFailure = "deleteFailed"
-                   }
-                   )
-                </td>
+        <table class="table" id="CategoriesTable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr id="Category-@item.CategoryID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td>
+                        <a href="#" class="EditLink text-secondary" id="@item.CategoryID">Edit</a> |
+                        @Ajax.ActionLink("Delete", "AjaxDelete", "Categories",
+                       new { id = item.CategoryID },
+                       new AjaxOptions
+                       {
+                           HttpMethod = "POST",
+                           Confirm = $"Are you sure you want to delete {item.CategoryName}?",
+                           OnSuccess = "deleteConfirmed",
+                           OnFailure = "deleteFailed"
+                       }
+                       )
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </section>
 
 </div>
 @section scripts {

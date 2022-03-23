@@ -1,106 +1,106 @@
 ﻿@model StoreFront.Data.EF.Product
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Product";
 }
 
-<!-- Edit Banner -->
-<div class="bg-info py-5 text-white">
-    <div class="container py-4">
-        <div class="col-lg-12 text-left my-3 text-uppercase">
-            <h3>Editing @Model.ProductName</h3>
-        </div>
+<!-- About Us Page Header -->
+<section class="page-header">
+    <div class="container px-3 py-0">
+        <h1>@ViewBag.Title</h1>
     </div>
+</section>
+
+<div class="bg-white">
+    @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ProductID)
+        @Html.HiddenFor(model => model.ProductImage)
+
+        <!-- Product Edit Section -->
+        <section class="container px-3 py-5">
+            <div class="row gx-5">
+                <div class="col-md-5">
+                    <img src="~/Content/img/@Model.ProductImage" alt="@Model.ProductName" class="img-fluid" />
+                    <div class="form-group my-3">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Upload an Image:</h4>
+                        <div class="col-md-10">
+                            <input type="file" name="uploadedImage" />
+                        </div>
+                    </div>
+                    <div class="form-group my-3">
+                        <div class="col-md-10">
+                            <input type="submit" value="Save" class="btn btn-info" />
+                        </div>
+                    </div>
+                    <div>
+                        @Html.ActionLink("Return to Products", "Index", "Products", null, new { @class = "btn btn-secondary" })
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Product Name</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Description</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Category (Pick One)</h4>
+                        <div class="col-md-10">
+                            @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Price</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Product Status (Choose One)</h4>
+                        <div class="col-md-10">
+                            @Html.DropDownList("ProductStatusID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ProductStatusID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Units in Stock</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 class="text-uppercase col-md-10 p-2 my-3">Date Released</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DateReleased, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DateReleased, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    }
 </div>
-
-@using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.ProductID)
-    @Html.HiddenFor(model => model.ProductImage)
-
-    <!-- Product Edit Section -->
-    <section class="container p-3 my-5">
-        <div class="row gx-5">
-            <div class="col-md-5">
-                <img src="~/Content/img/@Model.ProductImage" alt="@Model.ProductName" class="img-fluid" />
-                <div class="form-group my-3">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Upload an Image:</h4>
-                    <div class="col-md-10">
-                        <input type="file" name="uploadedImage" />
-                    </div>
-                </div>
-                <div class="form-group my-3">
-                    <div class="col-md-10">
-                        <input type="submit" value="Save" class="btn btn-info" />
-                    </div>
-                </div>
-                <div>
-                    @Html.ActionLink("Return to Products", "Index", "Products", null, new { @class = "btn btn-secondary" })
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Product Name</h4>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Description</h4>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Category (Pick One)</h4>
-                    <div class="col-md-10">
-                        @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Price</h4>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Product Status (Choose One)</h4>
-                    <div class="col-md-10">
-                        @Html.DropDownList("ProductStatusID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ProductStatusID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Units in Stock</h4>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <h4 class="text-uppercase col-md-10 p-2 my-3">Date Released</h4>
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.DateReleased, new { htmlAttributes = new { @class = "form-control"} })
-                        @Html.ValidationMessageFor(model => model.DateReleased, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-}
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -28,7 +28,7 @@
             @if (Session["cart"] != null)
             {
                 <li>
-                    <a class="dropdown-item text-uppercase border-bottom" href="@Url.Action("Index", "ShoppingCart")" >
+                    <a class="dropdown-item text-uppercase border-bottom" href="@Url.Action("Index", "ShoppingCart")">
                         <i class="fas fa-shopping-cart me-2"></i>Cart
                     </a>
                 </li>
@@ -52,6 +52,14 @@ else
                     <i class="fas fa-sign-in-alt me-2"></i>Login
                 </a>
             </li>
+            @if (Session["cart"] != null)
+            {
+                <li>
+                    <a class="dropdown-item text-uppercase border-bottom" href="@Url.Action("Index", "ShoppingCart")">
+                        <i class="fas fa-shopping-cart me-2"></i>Cart
+                    </a>
+                </li>
+            }
         </ul>
     </li>
 

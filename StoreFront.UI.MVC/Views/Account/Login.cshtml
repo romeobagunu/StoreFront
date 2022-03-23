@@ -4,18 +4,25 @@
     ViewBag.Title = "Log in";
 }
 
-<!-- Welcome Alert (for newly registered users) -->
-@if (ViewBag.Welcome != null)
-{
-    <div class="alert alert-success">
-        @Html.Raw(ViewBag.Welcome)
+<!-- Log In Page Header -->
+<section class="page-header">
+    <div class="container px-3 py-0">
+        <h1>@ViewBag.Title</h1>
     </div>
-}
+</section>
 
-<div class="min-height-70 container d-flex align-items-center">
+<div class="bg-white">
+
+    <!-- Welcome Alert (for newly registered users) -->
+    @if (ViewBag.Welcome != null)
+    {
+        <div class="alert alert-success">
+            @Html.Raw(ViewBag.Welcome)
+        </div>
+    }
+
     <!-- Login Section -->
     <section class="container p-3">
-        <h1 class="text-uppercase text-primary">@ViewBag.Title</h1>
         <div class="row">
             <div class="col-md-8">
                 <section id="loginForm">
