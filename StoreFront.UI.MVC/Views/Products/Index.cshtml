@@ -82,7 +82,7 @@
 
         <!-- Products Grid -->
         <div class="col-lg-9">
-            <div class="row gx-2 d-flex justify-content-between align-content-center">
+            <div class="row gx-2 d-flex justify-content-between">
                 @foreach (var item in Model)
                 {
                     <div class="col-md-5 col-sm-11 product-card my-3 mx-3 p-4">
@@ -93,7 +93,18 @@
                         </div>
                         <div class="product-text">
                             <a href="@Url.Action("Details", new { id = item.ProductID })">
-                                <h3 class="my-2">
+                                @{ 
+                                    string ProductNameClass = "";
+                                    if (item.Category.CategoryName == "NES")
+                                    {
+                                        ProductNameClass = "text-pixel";
+                                    }
+                                    else
+                                    {
+                                        ProductNameClass = "";
+                                    }
+                                }
+                                <h3 class="my-2 @ProductNameClass">
                                     @item.ProductName
                                     <span class="text-muted">
                                         (@item.DateReleased.Value.Year)

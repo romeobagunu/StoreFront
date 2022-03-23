@@ -130,7 +130,13 @@ body {
 
 .product-text {
     display: inline;
+    width: 66%;
     float: right;
+}
+
+.product-text h3.text-pixel {
+    font-size: 1em;
+    font-weight: 400;
 }
 
 .product-card a {
