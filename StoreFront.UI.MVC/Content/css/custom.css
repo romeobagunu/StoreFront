@@ -107,8 +107,40 @@ body {
     cursor: default;
     background-color: #4fbfa8;
     color: #fff;
-    border-color: #222;
+    border-color: rgb(79, 191, 168);
 }
+
+.product-card {
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    min-height: 20vh;
+}
+
+    .product-card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.product-img {
+    height: 100%;
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+}
+
+.product-text {
+    display: inline;
+    float: right;
+}
+
+.product-card a {
+    color: #222;
+}
+
+    .product-card a:hover {
+        color: #000;
+        text-decoration: none;
+    }
 
 /*** SHOPPING CART ***/
 

@@ -22,8 +22,8 @@ namespace StoreFront.UI.MVC.Controllers
         // GET: Products
         public ActionResult Index(string searchString, string categoryFilter, int page = 1)
         {
-            //Sets records per page to 6
-            int pageSize = 6;
+            //Sets records per page to 8
+            int pageSize = 8;
 
             //Creates products List, ordered by Category then by Release Date.
             var products = db.Products.Include(p => p.Category).Include(p => p.ProductStatus).OrderBy(p => p.CategoryID).ThenBy(p => p.DateReleased).ToList();

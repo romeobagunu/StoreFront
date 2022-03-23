@@ -20,20 +20,24 @@
 
         <!-- Products Side Bar -->
         <aside class="col-lg-3">
-
-            <!-- Admin Buttons Side Bar Section -->
-            <section>
-                @if (User.IsInRole("Admin"))
-                {
-                    <h3 class="my-3">Admin Buttons</h3>
-                    <p>
-                        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
-                    </p>
-                    <p>
-                        @Html.ActionLink("Edit Categories", "Index", "Categories", null, new { @class = "btn btn-secondary" })
-                    </p>
-                }
-            </section>
+            @if (User.IsInRole("Admin"))
+            {
+                <!-- Admin Buttons Side Bar Section -->
+                <section>
+                    <div class="my-3">
+                        <button id="toggleAdminButtons" class="btn btn-primary btn-sm">Admin Buttons</button>
+                    </div>
+                    <div id="AdminButtons">
+                        <h3 class="my-3">Admin Buttons</h3>
+                        <p>
+                            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+                        </p>
+                        <p>
+                            @Html.ActionLink("Edit Categories", "Index", "Categories", null, new { @class = "btn btn-secondary" })
+                        </p>
+                    </div>
+                </section>
+            }
 
             <!-- Filters Side Bar Section -->
             <section>
@@ -53,8 +57,19 @@
                         string categoryText = "";
                         foreach (string catName in ViewBag.CategoriesList)
                         {
-                            if (ViewBag.CategoryFilter == catName) { categoryText = "text-decoration-underline"; } else { categoryText = "text-gray-500"; }
-                            <a href="@Url.Action("Index", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = catName, page = 1 })" class="@categoryText d-block my-2">@catName</a>
+                            if (ViewBag.CategoryFilter == catName)
+                            {
+                                categoryText = "font-weight-700 text-primary";
+                            }
+                            else
+                            {
+                                categoryText = "text-gray-500";
+                            }
+                            <p class="@categoryText">
+                                <a href="@Url.Action("Index", routeValues: new { searchString = ViewBag.SearchString, categoryFilter = catName, page = 1 })" class="text-inherit">
+                                    @catName
+                                </a>
+                            </p>
                         }
                     }
 
@@ -65,82 +80,43 @@
             </section>
         </aside>
 
-        <!-- Products Display Table -->
+        <!-- Products Grid -->
         <div class="col-lg-9">
-            <table class="table mb-0">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().ProductImage)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().ProductName)
-                    </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.Description)
-                    </th>*@
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().Price)
-                    </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.UnitsInStock)
-                    </th>*@
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.DateReleased)
-                    </th>*@
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstOrDefault().Category.CategoryName)
-                    </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.ProductStatus.Status)
-                    </th>*@
-                    <th></th>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <th></th>
-                    }
-                </tr>
-
+            <div class="row gx-2 d-flex justify-content-between align-content-center">
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            <img src="~/Content/img/t_@item.ProductImage" alt="@item.ProductName" href="@Url.Action("Details", new { id = item.ProductID })">
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProductName)
-                        </td>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.UnitsInStock)
-                        </td>*@
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.DateReleased)
-                        </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                        </td>
-                        @*<td>
-                            @Html.DisplayFor(modelItem => item.ProductStatus.Status)
-                        </td>*@
-                        <td>
-                            @Html.ActionLink("Details", "Details", new { id = item.ProductID }, new { @class = "text-muted" })
-
-                        </td>
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "link-info" }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }, new { @class = "link-danger" })
-                            </td>
-                        }
-                    </tr>
+                    <div class="col-md-5 col-sm-11 product-card my-3 mx-3 p-4">
+                        <div class="product-img">
+                            <a href="@Url.Action("Details", new { id = item.ProductID })">
+                                <img class="img-fluid" src="~/Content/img/t_@item.ProductImage" alt="@item.ProductName">
+                            </a>
+                        </div>
+                        <div class="product-text">
+                            <a href="@Url.Action("Details", new { id = item.ProductID })">
+                                <h3 class="my-2">
+                                    @item.ProductName
+                                    <span class="text-muted">
+                                        (@item.DateReleased.Value.Year)
+                                    </span>
+                                </h3>
+                            </a>
+                            <p class="text-success">
+                                @string.Format($"{item.Price:c}")
+                            </p>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <p class="my-1">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "btn-info btn-sm" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }, new { @class = "btn-danger btn-sm" })
+                                </p>
+                            }
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
                 }
-            </table>
+            </div>
+
+
             <div class="d-flex mt-0">
                 <div class="d-inline-block">
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.SearchString, categoryFilter = ViewBag.CategoryFilter }))
@@ -181,5 +157,32 @@
                 $("#toggleProductsFilters").hide();
             }
         });
+
+        $("#toggleAdminButtons").hide();
+
+        var viewportWidthInitial = $(window).width();
+        if (viewportWidthInitial < 992) {
+            $("#AdminButtons").hide();
+            $("#toggleAdminButtons").show();
+            $("#toggleAdminButtons").click(function () {
+                $("#AdminButtons").toggle();
+            });
+        }
+
+        $(window).on('resize', function (e) {
+            var viewportWidthDynamic = $(window).width();
+            if (viewportWidthDynamic < 992) {
+                $("#AdminButtons").hide();
+                $("#toggleAdminButtons").show();
+                $("#toggleAdminButtons").click(function () {
+                    $("#AdminButtons").toggle();
+                });
+            }
+            else {
+                $("#AdminButtons").show();
+                $("#toggleAdminButtons").hide();
+            }
+        });
+
     </script>
 }
