@@ -10,48 +10,26 @@
 </section>
 
 <!-- Intro Hero -->
-<section class="text-white text-center min-vw-100" id="IndexHero">
-    <div class="container py-5">
-        <h1 class="text-uppercase mt-5">Restored Vintage Technology</h1>
-        @Html.ActionLink("About Us", "About", "Home", null, new { @class = "btn btn-primary btn-lg mt-3 mb-5" })
-    </div>
+<section class="text-center" id="IndexHero">
+    <h1 class="text-uppercase mt-5">Restored Vintage Technology</h1>
+    @Html.ActionLink("About Us", "About", "Home", null, new { @class = "btn btn-primary btn-lg mt-3 mb-5" })
 </section>
 
 <!-- Product Categories Section -->
-<section class="py-5">
-    <div class="container py-4">
-        <div class="row gy-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="text-center align-items-center category-icon-lg">
-                    <a href="@Url.Action("Index", "Products")">
-                        <img src="~/Content/img/music-icon.png" />
-                    </a>
-                    <a href="@Url.Action("Index", "Products")"><h4 class="text-uppercase mb-3">Sony Walkmans</h4></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="text-center align-items-center category-icon-lg">
-                    <a href="@Url.Action("Index", "Products")">
-                        <img src="~/Content/img/videogames-icon.png" />
-                    </a>
-                    <a href="@Url.Action("Index", "Products")">
-                        <h4 class="text-uppercase mb-3">NES CONSOLES &amp; CARTRIDGES</h4>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="text-center align-items-center category-icon-lg">
-                    <a href="@Url.Action("Index", "Products")">
-                        <img src="~/Content/img/gameboy-icon.png" />
-                    </a>
-
-                    <a href="@Url.Action("Index", "Products")">
-                        <h4 class="text-uppercase mb-3">GAME BOYS &amp; CARTRIDGES</h4>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+<section id="ProductCategories">
+    <h1>Current Products</h1>
+        <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Game Boy" })">
+            <img src="~/Content/img/gameboy-icon.png" class="img-fluid" />
+            <h2>Game Boy</h2>
+        </a>
+        <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "NES" })">
+            <img src="~/Content/img/videogames-icon.png" class="img-fluid" />
+            <h2>NES</h2>
+        </a>
+        <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Walkman" })">
+            <img src="~/Content/img/music-icon.png" class="img-fluid" />
+            <h2>Walkman</h2>
+        </a>
 </section>
 
 <!-- Featured Product Hero -->
@@ -65,7 +43,7 @@
                 <p>
                     When Sony released the TPS-L2 in 1979, it was the first portable music player to hit the market. Innovative. Iconic. Experience history with a durable restoration of this classic device.
                 </p>
-                @Html.ActionLink("PURCHASE", "Details", "Products", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-outline-success text-white btn-lg" })
+                @Html.ActionLink("PURCHASE", "Details", "Products", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-success btn-lg" })
             </div>
         </div>
         <div class="col-lg-5 col-md-12 text-center py-3">

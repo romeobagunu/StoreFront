@@ -3,10 +3,26 @@
 *****************/
 
 body {
-    background-color: #222;
     font-family: 'IBM Plex Mono';
     text-justify: auto;
     min-width: 100vw;
+    background-color: rgb(230, 230, 240);
+}
+
+section {
+    padding: 3em 0;
+}
+
+h1 {
+    font-family: 'IBM Plex Mono';
+    font-weight: 100;
+    color: #222;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Sarpanch';
+    color: #444;
 }
 
 .text-pixel {
@@ -69,13 +85,14 @@ body {
 .page-header {
     padding-top: 100px;
     padding-bottom: 25px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 100%), linear-gradient(217deg, rgba(180,0,255,.8), rgba(180,0,255,0) 80%), linear-gradient(127deg, rgba(0,30,172,.8), rgba(0,30,172,0) 70%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0) 100%), linear-gradient(217deg, rgba(180,0,255,.8), rgba(180,0,255,0) 80%), linear-gradient(127deg, rgba(0,30,172,.8), rgba(0,30,172,0) 70%), linear-gradient(0deg, #222, #222 100%);
     height: 33vh;
     max-height: 250px;
     color: #fff;
 }
 
     .page-header h1 {
+        color: #fff;
         margin-top: 25px;
         font-family: 'Sarpanch', monospace;
     }
@@ -83,24 +100,20 @@ body {
 /*** INDEX ***/
 
 #WelcomeBanner {
-    color: #fff;
     background: url("../img/welcome-banner.jpg");
     background-size: cover;
     background-position: center;
 }
 
-#WelcomeBanner div {
-    height: 100vh;
-}
+    #WelcomeBanner div {
+        height: 100vh;
+    }
 
     #WelcomeBanner h1 {
         font-family: 'Sarpanch';
+        color: #fff;
         font-size: 10em;
         margin-bottom: 0;
-    }
-
-    #WelcomeBanner p {
-        font-family: 'IBM Plex Mono';
     }
 
 
@@ -110,47 +123,71 @@ body {
     }
 }
 
-.category-icon-lg img {
-    border-radius: 50%;
-    max-height: 150px;
-    padding: 16px;
-    margin-bottom: 2em;
+#ProductCategories {
+    text-align: center;
 }
 
-    .category-icon-lg img:hover {
-        border: 1px solid #4fbfa8;
-        padding: 15px;
+    #ProductCategories h1 {
+        margin-bottom: 1em;
+    }
+
+    #ProductCategories a:hover {
+        text-decoration: none;
+    }
+
+    #ProductCategories img {
+        max-height: 250px;
+    }
+
+    #ProductCategories h2 {
+        font-family: 'Sarpanch';
+    }
+
+.category-card {
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 30%;
+    display: inline-block;
+}
+
+    .category-card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .category-card h2 {
+        padding-bottom: 1em;
     }
 
 /* Featured Product Hero */
 
 #FeaturedProduct {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 100%), linear-gradient(221deg, rgba(38,53,107,.8), rgba(38,53,107,0) 80%), linear-gradient(12deg, rgba(245,115,1,.8), rgba(245,115,1,0) 70%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 100%), linear-gradient(221deg, rgba(38,53,107,.8), rgba(38,53,107,0) 80%), linear-gradient(12deg, rgba(245,115,1,.8), rgba(245,115,1,0) 70%), linear-gradient(0deg, #222, #222 100%);
 }
 
-#FeaturedProduct img {
-    width: 100%;
-}
+    #FeaturedProduct img {
+        width: 100%;
+    }
 
-#FeaturedProduct h2 {
-    color: #fff;
-    font-family: 'Sarpanch';
-    font-size: 3em;
-}
+    #FeaturedProduct h2 {
+        color: #fff;
+        font-family: 'Sarpanch';
+        font-size: 3em;
+    }
 
-#FeaturedProduct h3 {
-    color: #bbb;
-    font-family: 'IBM Plex Mono';
-    font-size: 1.5em;
-    text-transform: uppercase;
-    font-weight: 100;
-}
+    #FeaturedProduct h3 {
+        color: #bbb;
+        font-family: 'IBM Plex Mono';
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: 100;
+    }
 
-#FeaturedProduct p {
-    font-size: 1.2em;
-    color: #ddd;
-    font-family: 'IBM Plex Mono';
-}
+    #FeaturedProduct p {
+        font-size: 1.2em;
+        color: #ddd;
+        font-family: 'IBM Plex Mono';
+    }
 
 
 /*** PRODUCTS ***/
