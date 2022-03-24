@@ -4,7 +4,10 @@
 
 body {
     background-color: #222;
+    font-family: 'IBM Plex Mono';
 }
+
+
 
 .text-pixel {
     font-family: 'Press Start 2P';
@@ -27,11 +30,11 @@ body {
     border: none;
 }
 
-.navbar-light .navbar-toggler:focus {
-    color: #fff;
-    border: none;
-    outline: 0;
-}
+    .navbar-light .navbar-toggler:focus {
+        color: #fff;
+        border: none;
+        outline: 0;
+    }
 
 .navbar-light .navbar-nav .nav-link {
     color: #ddd;
@@ -72,21 +75,36 @@ body {
     color: #fff;
 }
 
-.page-header h1 {
-    margin-top: 25px;
-    text-transform: uppercase;
-}
+    .page-header h1 {
+        margin-top: 25px;
+        font-family: 'Sarpanch', monospace;
+    }
 
 /*** INDEX ***/
 
-#FeaturedProduct {
+#WelcomeBanner {
+    color: #fff;
     height: 100vh;
-    background: url("../img/welcome-banner.png");
+    background: url("../img/welcome-banner.jpg");
     background-size: cover;
+    background-position: center;
 }
 
-#IndexHero {
-    background: #000;
+    #WelcomeBanner h1 {
+        font-family: 'Sarpanch';
+        font-size: 10em;
+    }
+    #WelcomeBanner p {
+        font-family: 'IBM Plex Mono';
+        font-weight: 100;
+    }
+
+
+@media (max-width: 992px) {
+    #WelcomeBanner h1 {
+        font-family: 'Sarpanch';
+        font-size: 7em;
+    }
 }
 
 .category-icon-lg img {
@@ -134,10 +152,10 @@ body {
     float: right;
 }
 
-.product-text h3.text-pixel {
-    font-size: 1em;
-    font-weight: 400;
-}
+    .product-text h3.text-pixel {
+        font-size: 1em;
+        font-weight: 400;
+    }
 
 .product-card a {
     color: #222;

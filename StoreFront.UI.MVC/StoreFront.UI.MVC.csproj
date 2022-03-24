@@ -209,7 +209,7 @@
     <Content Include="Content\img\logo-small.png" />
     <Content Include="Content\img\logo-white.png" />
     <Content Include="Content\img\logo.png" />
-    <Content Include="Content\img\welcome-banner.png" />
+    <Content Include="Content\img\welcome-banner.jpg" />
     <Content Include="Content\img\music-icon.png" />
     <Content Include="Content\img\nes-banner.jpg" />
     <Content Include="Content\img\placeholder.jpg" />
@@ -1080,7 +1080,6 @@
     <Content Include="Content\vendor\wow.js\wow.min.js.gz" />
     <Content Include="Scripts\countries.json" />
     <Content Include="configs\AppSecretKeys.config" />
-    <Content Include="Content\css\EmailConfirmation.cshtml" />
     <Content Include="Content\css\style.default.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
