@@ -5,9 +5,9 @@
 body {
     background-color: #222;
     font-family: 'IBM Plex Mono';
+    text-justify: auto;
+    min-width: 100vw;
 }
-
-
 
 .text-pixel {
     font-family: 'Press Start 2P';
@@ -84,25 +84,28 @@ body {
 
 #WelcomeBanner {
     color: #fff;
-    height: 100vh;
     background: url("../img/welcome-banner.jpg");
     background-size: cover;
     background-position: center;
 }
 
+#WelcomeBanner div {
+    height: 100vh;
+}
+
     #WelcomeBanner h1 {
         font-family: 'Sarpanch';
         font-size: 10em;
+        margin-bottom: 0;
     }
+
     #WelcomeBanner p {
         font-family: 'IBM Plex Mono';
-        font-weight: 100;
     }
 
 
 @media (max-width: 992px) {
     #WelcomeBanner h1 {
-        font-family: 'Sarpanch';
         font-size: 7em;
     }
 }
@@ -118,6 +121,37 @@ body {
         border: 1px solid #4fbfa8;
         padding: 15px;
     }
+
+/* Featured Product Hero */
+
+#FeaturedProduct {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 100%), linear-gradient(221deg, rgba(38,53,107,.8), rgba(38,53,107,0) 80%), linear-gradient(12deg, rgba(245,115,1,.8), rgba(245,115,1,0) 70%);
+}
+
+#FeaturedProduct img {
+    width: 100%;
+}
+
+#FeaturedProduct h2 {
+    color: #fff;
+    font-family: 'Sarpanch';
+    font-size: 3em;
+}
+
+#FeaturedProduct h3 {
+    color: #bbb;
+    font-family: 'IBM Plex Mono';
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+#FeaturedProduct p {
+    font-size: 1.2em;
+    color: #ddd;
+    font-family: 'IBM Plex Mono';
+}
+
 
 /*** PRODUCTS ***/
 

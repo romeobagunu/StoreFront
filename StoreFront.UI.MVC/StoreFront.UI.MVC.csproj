@@ -209,12 +209,12 @@
     <Content Include="Content\img\logo-small.png" />
     <Content Include="Content\img\logo-white.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\tps-l2-feature.jpg" />
     <Content Include="Content\img\welcome-banner.jpg" />
     <Content Include="Content\img\music-icon.png" />
     <Content Include="Content\img\nes-banner.jpg" />
     <Content Include="Content\img\placeholder.jpg" />
     <Content Include="Content\img\sung-wang-g4DgCF90EM4-unsplash-cropped.jpg" />
-    <Content Include="Content\img\tps-l2-feature.jpg" />
     <Content Include="Content\img\t_placeholder.jpg" />
     <Content Include="Content\img\videogames-icon.png" />
     <Content Include="Content\img\vinyl-icon.png" />
