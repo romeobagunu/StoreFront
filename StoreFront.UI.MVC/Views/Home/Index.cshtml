@@ -4,53 +4,34 @@
 
 <!-- Featured Product Banner -->
 <section id="WelcomeBanner">
-    <div class="d-flex align-items-center justify-content-center">
-        <h1>Retro Tech</h1>
-    </div>
-</section>
-
-<!-- Intro Hero -->
-<section class="text-center" id="IndexHero">
-    <h1 class="text-uppercase mt-5">Restored Vintage Technology</h1>
-    @Html.ActionLink("About Us", "About", "Home", null, new { @class = "btn btn-primary btn-lg mt-3 mb-5" })
+    <h1>Retro Tech</h1>
+    <p>Yesterday's future - available today.</p>
 </section>
 
 <!-- Product Categories Section -->
 <section id="ProductCategories">
     <h1>Current Products</h1>
-        <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Game Boy" })">
-            <img src="~/Content/img/gameboy-icon.png" class="img-fluid" />
-            <h2>Game Boy</h2>
-        </a>
-        <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "NES" })">
-            <img src="~/Content/img/videogames-icon.png" class="img-fluid" />
-            <h2>NES</h2>
-        </a>
-        <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Walkman" })">
-            <img src="~/Content/img/music-icon.png" class="img-fluid" />
-            <h2>Walkman</h2>
-        </a>
+    <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Game Boy" })">
+        <img src="~/Content/img/gameboy-icon.png" class="img-fluid" />
+        <h2>Game Boy</h2>
+    </a>
+    <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "NES" })">
+        <img src="~/Content/img/videogames-icon.png" class="img-fluid" />
+        <h2>NES</h2>
+    </a>
+    <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Walkman" })">
+        <img src="~/Content/img/music-icon.png" class="img-fluid" />
+        <h2>Walkman</h2>
+    </a>
 </section>
 
-<!-- Featured Product Hero -->
-<section id="FeaturedProduct">
-    <div class="row gy-3 py-5">
-        <div class="col-lg-1 col-md-0"></div>
-        <div class="col-lg-5 col-md-12 d-flex align-items-center">
-            <div class="container py-3">
-                <h3>Featured Product</h3>
-                <h2>Sony TPS-L2</h2>
-                <p>
-                    When Sony released the TPS-L2 in 1979, it was the first portable music player to hit the market. Innovative. Iconic. Experience history with a durable restoration of this classic device.
-                </p>
-                @Html.ActionLink("PURCHASE", "Details", "Products", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-success btn-lg" })
-            </div>
-        </div>
-        <div class="col-lg-5 col-md-12 text-center py-3">
-            <img src="~/Content/img/tps-l2-feature.jpg" class-="img-fluid" />
-        </div>
-        <div class="col-lg-1 col-md-0"></div>
-    </div>
+
+
+<!-- Featured Product Banner -->
+<section id="FeatureBanner">
+    <img src="~/Content/img/tps-l2-feature.jpg" />
+    <h2>Sony TPS-L2 <span class="text-gray-500">| Featured Product</span></h2>
+    @Html.ActionLink("Purchase", "Details", "Products", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-success" })
 </section>
 
 <!-- Register Banner -->

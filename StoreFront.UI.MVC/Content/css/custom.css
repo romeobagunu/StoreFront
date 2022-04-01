@@ -99,40 +99,111 @@ section.page-header {
     color: #fff;
 }
 
-    .page-header h1 {
-        color: #fff;
-        margin-top: 25px;
-        font-family: 'Sarpanch', monospace;
-    }
+.page-header h1 {
+    color: #fff;
+    margin-top: 25px;
+    font-family: 'Sarpanch', monospace;
+}
 
 /*** INDEX ***/
 
 #WelcomeBanner {
+    height: 66vh;
     background: url("../img/welcome-banner.jpg");
     background-size: cover;
     background-position: center;
 }
 
-    #WelcomeBanner div {
-        height: 100vh;
-    }
-
     #WelcomeBanner h1 {
+        margin-top: 20vh;
+        margin-bottom: 0;
         font-family: 'Sarpanch';
         color: #fff;
-        font-size: 10em;
-        margin-bottom: 0;
+        font-size: 4em;
+        text-align: center;
     }
 
+    #WelcomeBanner p {
+        font-family: 'IBM Plex Mono';
+        color: #fff;
+        font-size: 1.35em;
+        font-weight: 100;
+        text-align: center;
+    }
+
+/* Featured Product Hero */
+
+#FeatureBanner {
+    margin: 2.5em auto;
+    width: 50%;
+    left: 25%;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+    #FeatureBanner img {
+        width: 90%;
+    }
+
+    #FeatureBanner h2 {
+        padding: 0.5em 1em;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+    }
+
+    #FeatureBanner a {
+        position: absolute;
+        width: 20%;
+        bottom: 5%;
+        left: 40%;
+    }
 
 @media (max-width: 992px) {
-    #WelcomeBanner h1 {
-        font-size: 7em;
+    #FeatureBanner {
+        text-align: left;
+        margin: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        position: relative;
     }
+
+        #FeatureBanner img {
+            width: 100%;
+        }
+
+        #FeatureBanner h2 {
+            font-size: 2em;
+            padding: 0.5em 1em;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+
+        #FeatureBanner span {
+            display: none;
+        }
+
+        #FeatureBanner a {
+            position: absolute;
+            left: 2.5%;
+            bottom: 5%;
+            height: 40px;
+            width: auto;
+        }
 }
 
 #ProductCategories {
     text-align: center;
+    padding: 2em 0;
 }
 
     #ProductCategories h1 {
@@ -166,37 +237,6 @@ section.page-header {
     .category-card h2 {
         padding-bottom: 1em;
     }
-
-/* Featured Product Hero */
-
-#FeaturedProduct {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0) 100%), linear-gradient(221deg, rgba(38,53,107,.8), rgba(38,53,107,0) 80%), linear-gradient(12deg, rgba(245,115,1,.8), rgba(245,115,1,0) 70%), linear-gradient(0deg, #222, #222 100%);
-}
-
-    #FeaturedProduct img {
-        width: 100%;
-    }
-
-    #FeaturedProduct h2 {
-        color: #fff;
-        font-family: 'Sarpanch';
-        font-size: 3em;
-    }
-
-    #FeaturedProduct h3 {
-        color: #bbb;
-        font-family: 'IBM Plex Mono';
-        font-size: 1.5em;
-        text-transform: uppercase;
-        font-weight: 100;
-    }
-
-    #FeaturedProduct p {
-        font-size: 1.2em;
-        color: #ddd;
-        font-family: 'IBM Plex Mono';
-    }
-
 
 /*** PRODUCTS ***/
 
