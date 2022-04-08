@@ -131,6 +131,143 @@ section.page-header {
         text-align: center;
     }
 
+/* Product Categories Section */
+
+#ProductCategories {
+    text-align: center;
+    padding: 2em;
+    padding-left: 0.4em;
+    padding-right: 1em;
+    max-width: 1300px;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+    #ProductCategories h1 {
+        margin-bottom: 1em;
+    }
+
+    #ProductCategories a:hover {
+        text-decoration: none;
+    }
+
+    #ProductCategories img {
+        max-height: 250px;
+    }
+
+    #ProductCategories h2 {
+        font-family: 'Sarpanch';
+    }
+
+.category-card {
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 30%;
+    display: inline-block;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+    .category-card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .category-card h2 {
+        padding-bottom: 1em;
+    }
+
+@media (max-width: 600px) {
+    .category-card {
+        width: 50%;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+}
+
+/* About Us Section */
+#AboutUsIndex {
+    position: relative;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0) 100%), linear-gradient(217deg, rgba(180,0,255,.8), rgba(180,0,255,0) 80%), linear-gradient(127deg, rgba(0,30,172,.8), rgba(0,30,172,0) 70%), linear-gradient(0deg, #222, #222 100%);
+}
+
+#AboutUsBubble {
+    position: absolute;
+    width: 75%;
+    left: 12.5%;
+    height: 75vh;
+    top: 12.5vh;
+    border-radius: .25rem;
+    background-color: #222;
+    color: #fff;
+    padding: 1em;
+}
+
+    #AboutUsBubble h3 {
+        padding-top: 1em;
+        font-family: 'Sarpanch';
+        text-align: center;
+    }
+
+        #AboutUsBubble h3 span {
+            font-size: 0.8em;
+            font-family: 'IBM Plex Mono';
+            font-weight: 100;
+        }
+
+    #AboutUsBubble p {
+        font-weight: 100;
+        font-family: 'IBM Plex Mono';
+    }
+
+/* Featured Collection (Walkman) */
+#collectionWalkman {
+    padding-top: 0;
+    position: relative;
+    display: block;
+}
+
+    #collectionWalkman img {
+        width: 100%;
+        height: auto;
+    }
+
+    #collectionWalkman h3 {
+        position: absolute;
+        top: calc(50% - 1.2em);
+        left: 0;
+        z-index: 2;
+        display: inline;
+        height: 1em;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+    }
+
+    #collectionWalkman .btn {
+        position: absolute;
+        top: 52%;
+        left: calc(50% - 85px);
+        width: 170px;
+        z-index: 1;
+    }
+
+@media(min-width: 1600px) {
+
+    #collectionWalkman {
+        width: 100%;
+        text-align: center;
+    }
+
+        #collectionWalkman img {
+            width: 1600px;
+            height: auto;
+        }
+}
+
 /* Featured Product Hero */
 
 #FeatureBanner {
@@ -200,43 +337,6 @@ section.page-header {
             width: auto;
         }
 }
-
-#ProductCategories {
-    text-align: center;
-    padding: 2em 0;
-}
-
-    #ProductCategories h1 {
-        margin-bottom: 1em;
-    }
-
-    #ProductCategories a:hover {
-        text-decoration: none;
-    }
-
-    #ProductCategories img {
-        max-height: 250px;
-    }
-
-    #ProductCategories h2 {
-        font-family: 'Sarpanch';
-    }
-
-.category-card {
-    text-align: center;
-    box-sizing: border-box;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    width: 30%;
-    display: inline-block;
-}
-
-    .category-card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-
-    .category-card h2 {
-        padding-bottom: 1em;
-    }
 
 /*** PRODUCTS ***/
 

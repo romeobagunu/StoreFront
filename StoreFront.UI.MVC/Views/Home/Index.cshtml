@@ -5,12 +5,12 @@
 <!-- Featured Product Banner -->
 <section id="WelcomeBanner">
     <h1>Retro Tech</h1>
-    <p>Yesterday's future - available today.</p>
+    <p>History on repeat.</p>
 </section>
 
 <!-- Product Categories Section -->
 <section id="ProductCategories">
-    <h1>Current Products</h1>
+    <h1>Current Product Lines</h1>
     <a class="category-card" href="@Url.Action("Index", "Products", new { categoryFilter = "Game Boy" })">
         <img src="~/Content/img/gameboy-icon.png" class="img-fluid" />
         <h2>Game Boy</h2>
@@ -25,15 +25,27 @@
     </a>
 </section>
 
+<!-- About Us (Index)
+<section id="AboutUsIndex">
+    <div id="AboutUsBubble">
+        <h3><span>Welcome to</span> RetroTech.</h3>
+        <p></p>
+    </div>
+</section> -->
 
+<!-- Featured Collection Banner -->
+<section id="collectionWalkman">
+    <img src="~/Content/img/walkman-banner.png" alt="Banner for the Walkman line of products." />
+    <h3>Classic Casette Players</h3>
+    @Html.ActionLink("View Collection", "Index", "Products", routeValues: new { categoryFilter = "Walkman" }, htmlAttributes: new { @class = "btn btn-outline-light" })
+</section>
 
-<!-- Featured Product Banner -->
+<!-- Featured Product Banner
 <section id="FeatureBanner">
     <img src="~/Content/img/tps-l2-feature.jpg" />
     <h2>Sony TPS-L2 <span class="text-gray-500">| Featured Product</span></h2>
     @Html.ActionLink("Purchase", "Details", "Products", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-success" })
-</section>
-
+</section>-->
 <!-- Register Banner -->
 <div class="bg-primary py-3 text-white">
     <div class="container">

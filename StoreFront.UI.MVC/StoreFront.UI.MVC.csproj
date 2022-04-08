@@ -211,6 +211,7 @@
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\nes-manual.JPG" />
     <Content Include="Content\img\tps-l2-feature.jpg" />
+    <Content Include="Content\img\walkman-banner.png" />
     <Content Include="Content\img\welcome-banner.jpg" />
     <Content Include="Content\img\music-icon.png" />
     <Content Include="Content\img\nes-banner.jpg" />
