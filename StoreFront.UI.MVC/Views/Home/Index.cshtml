@@ -5,7 +5,15 @@
 <!-- Featured Product Banner -->
 <section id="WelcomeBanner">
     <h1>Retro Tech</h1>
-    <p>History on repeat.</p>
+    @{
+        string[] txtWelcome =
+        {
+            "Where history repeats", "Yesterday's tech of the future - available now", "Check out our Walkman line!", "Vintage tech at an affordable price", "Authenticity and durability are our guarantee"
+        };
+        Random rand = new Random();
+        int txtIndex = rand.Next(txtWelcome.Length);
+    }
+    <p>@txtWelcome[txtIndex]</p>
 </section>
 
 <!-- Product Categories Section -->
