@@ -187,29 +187,24 @@ section.page-header {
 
 /* About Us Section */
 #AboutUsIndex {
-    position: relative;
-    padding: 0;
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0) 100%), linear-gradient(217deg, rgba(180,0,255,.8), rgba(180,0,255,0) 80%), linear-gradient(127deg, rgba(0,30,172,.8), rgba(0,30,172,0) 70%), linear-gradient(0deg, #222, #222 100%);
+
 }
 
 #AboutUsBubble {
-    position: absolute;
     width: 75%;
-    left: 12.5%;
-    height: 75vh;
-    top: 12.5vh;
+    max-width: 660px;
+    margin: auto;
     border-radius: .25rem;
     background-color: #222;
     color: #fff;
     padding: 1em;
+    text-align: center;
+    border: 1px solid #4fbfa8;
 }
 
     #AboutUsBubble h3 {
-        padding-top: 1em;
         font-family: 'Sarpanch';
-        text-align: center;
+        color: #fff;
     }
 
         #AboutUsBubble h3 span {
@@ -221,6 +216,7 @@ section.page-header {
     #AboutUsBubble p {
         font-weight: 100;
         font-family: 'IBM Plex Mono';
+        color: #ccc;
     }
 
 /* Featured Collection (Walkman) */

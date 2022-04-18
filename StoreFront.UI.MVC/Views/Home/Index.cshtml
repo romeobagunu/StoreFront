@@ -8,12 +8,21 @@
     @{
         string[] txtWelcome =
         {
-            "Where history repeats", "Yesterday's tech of the future - available now", "Check out our Walkman line!", "Vintage tech at an affordable price", "Authenticity and durability are our guarantee"
-        };
+"Where history repeats itself", "Yesterday's tech of the future - available now", "Check out our Walkman line!", "Vintage tech at an affordable price", "Authenticity and durability are our guarantee"
+};
         Random rand = new Random();
         int txtIndex = rand.Next(txtWelcome.Length);
     }
     <p>@txtWelcome[txtIndex]</p>
+</section>
+
+<!-- About Us (Index) -->
+<section id="AboutUsIndex">
+    <div id="AboutUsBubble">
+            <h3><span>Welcome to</span> RetroTech.</h3>
+            <p>Our mission is to make vintage technology accessible and affordable.</p>
+            @Html.ActionLink("About Us", "About", "Home", htmlAttributes: new { @class = "btn btn-outline-light" })
+    </div>
 </section>
 
 <!-- Product Categories Section -->
@@ -33,21 +42,6 @@
     </a>
 </section>
 
-<!-- About Us (Index)
-<section id="AboutUsIndex">
-    <div id="AboutUsBubble">
-        <h3><span>Welcome to</span> RetroTech.</h3>
-        <p></p>
-    </div>
-</section> -->
-
-<!-- Featured Collection Banner -->
-<section id="collectionWalkman">
-    <img src="~/Content/img/walkman-banner.png" alt="Banner for the Walkman line of products." />
-    <h3>Classic Casette Players</h3>
-    @Html.ActionLink("View Collection", "Index", "Products", routeValues: new { categoryFilter = "Walkman" }, htmlAttributes: new { @class = "btn btn-outline-light" })
-</section>
-
 <!-- Featured Product Banner
 <section id="FeatureBanner">
     <img src="~/Content/img/tps-l2-feature.jpg" />
@@ -65,3 +59,10 @@
         </div>
     </div>
 </div>
+
+<!-- Featured Collection Banner
+<section id="collectionWalkman">
+    <img src="~/Content/img/walkman-banner.png" alt="Banner for the Walkman line of products." />
+    <h3>Classic Casette Players</h3>
+    @Html.ActionLink("View Collection", "Index", "Products", routeValues: new { categoryFilter = "Walkman" }, htmlAttributes: new { @class = "btn btn-outline-light" })
+</section>-->
